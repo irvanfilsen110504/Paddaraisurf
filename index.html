@@ -1,0 +1,1239 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>Paddarai Surf Lodge</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;}
+body{
+  font-family:Poppins;color:#000;
+  animation:pageIn 1.2s ease forwards;
+  opacity:0;
+  background:#fff;
+  overflow-x:hidden;
+}
+@keyframes pageIn{
+  from{opacity:0;transform:scale(1.02)}
+  to{opacity:1;transform:scale(1)}
+}
+
+/* ─── NAV ─── */
+nav{
+  position:fixed;top:0;width:100%;
+  padding:12px 40px;
+  display:flex;align-items:center;justify-content:space-between;
+  z-index:100;
+  background:rgba(0,0,0,0.4);
+  backdrop-filter:blur(10px);
+  transition:background .5s ease,box-shadow .5s ease;
+}
+nav.scrolled{background:rgba(0,0,0,0.7);box-shadow:0 4px 20px rgba(0,0,0,.3);backdrop-filter:blur(12px);}
+.logo-wrap{display:flex;flex-direction:column;align-items:center;flex-shrink:0;}
+.logo{width:55px}
+.logo-text{font-family:'Playfair Display';color:#fff;font-size:13px;letter-spacing:2px;}
+
+/* ─── HERO ─── */
+header{
+  position:relative;height:100vh;
+  display:flex;align-items:center;justify-content:center;text-align:center;
+  background:linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)),
+             url("Resor pantai tropis yang indah.png") no-repeat center/cover;
+  overflow:hidden;padding:0 20px;
+}
+.hero-logo,.hero-text{opacity:0;animation:fadeIn 1.2s ease forwards;}
+.hero-logo{width:220px;}
+.hero-text{
+  font-family:'Playfair Display';color:#fff;font-size:42px;
+  margin-top:10px;letter-spacing:1px;animation-delay:.5s;line-height:1.2;
+}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.btn{
+  background:#fff;color:#111;padding:12px 30px;border-radius:30px;
+  text-decoration:none;font-weight:bold;display:inline-block;margin-top:18px;
+  opacity:0;animation:btnFade 1.2s ease forwards;animation-delay:.9s;
+}
+@keyframes btnFade{from{opacity:0}to{opacity:1}}
+.btn:hover{transform:scale(1.05);background:#f0f0f0;box-shadow:0 12px 30px rgba(0,0,0,.35);transition:.3s;}
+
+/* ─── REVEAL ─── */
+.fade{opacity:0;transform:translateY(24px);transition:all .45s ease-out;}
+.fade.show{opacity:1;transform:translateY(0);}
+.cards .card,.gallery img{opacity:0;transform:scale(.96);transition:all .4s ease-out;}
+.cards .card.show,.gallery img.show{opacity:1;transform:scale(1);}
+.cards .card:hover,.gallery img:hover{transform:scale(1.04);box-shadow:0 15px 40px rgba(0,0,0,.25);transition:all .3s ease;z-index:2;cursor:pointer;}
+
+/* ─── SECTIONS ─── */
+section{padding:70px 8%;scroll-margin-top:100px;background:#fff;}
+h2{font-family:'Playfair Display';color:#111;font-size:36px;margin-bottom:20px;}
+
+/* ─── ROOMS ─── */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;}
+.card{background:#f0f0f0;padding:20px;border-radius:15px;box-shadow:0 0 10px rgba(0,0,0,.1);}
+.cards .card img{width:100%;height:200px;object-fit:cover;display:block;margin-top:10px;border-radius:10px;}
+
+/* ─── GALLERY ─── */
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:15px;}
+.gallery img{width:100%;height:220px;object-fit:cover;border-radius:15px;display:block;}
+
+/* ─── CONTACT ─── */
+.contact-item{display:flex;align-items:center;gap:12px;margin:14px 0;font-size:16px;text-decoration:none;color:#111;transition:.1s;word-break:break-word;}
+.contact-item:hover{transform:translateX(5px);color:#555;}
+.contact-item img{width:24px;height:24px;object-fit:contain;flex-shrink:0;}
+footer{text-align:center;background:#f0f0f0;padding:20px;color:#111;}
+
+/* ─── PROMO ─── */
+#promo{background:linear-gradient(135deg,#0a1628 0%,#1a3a5c 50%,#0d2640 100%);position:relative;overflow:hidden;}
+#promo::before{content:'';position:absolute;top:-60px;right:-60px;width:300px;height:300px;border-radius:50%;background:rgba(255,255,255,.03);pointer-events:none;}
+#promo::after{content:'';position:absolute;bottom:-80px;left:-40px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,.04);pointer-events:none;}
+#promo h2{color:#fff;text-align:center;margin-bottom:10px;}
+#promo .promo-subtitle{color:rgba(255,255,255,.65);text-align:center;margin-bottom:40px;font-size:15px;letter-spacing:.5px;}
+.promo-card{max-width:680px;margin:0 auto;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:24px;overflow:hidden;backdrop-filter:blur(12px);box-shadow:0 20px 60px rgba(0,0,0,.4);transition:transform .4s ease,box-shadow .4s ease;opacity:0;transform:translateY(24px);}
+.promo-card.show{opacity:1;transform:translateY(0);}
+.promo-card:hover{transform:translateY(-6px);box-shadow:0 28px 70px rgba(0,0,0,.5);}
+.promo-badge{position:absolute;top:18px;right:18px;background:linear-gradient(135deg,#ff6b35,#f7c59f);color:#fff;font-weight:bold;font-size:13px;padding:6px 16px;border-radius:30px;letter-spacing:.5px;box-shadow:0 4px 14px rgba(255,107,53,.4);}
+.promo-img-wrap{position:relative;width:100%;height:320px;overflow:hidden;}
+.promo-img-wrap img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease;}
+.promo-card:hover .promo-img-wrap img{transform:scale(1.04);}
+.promo-body{padding:28px 30px 32px;}
+.promo-body h3{font-family:'Playfair Display';color:#fff;font-size:26px;margin-bottom:12px;line-height:1.3;}
+.promo-body p{color:rgba(255,255,255,.75);font-size:15px;line-height:1.7;margin-bottom:22px;}
+.promo-btn{display:inline-block;background:linear-gradient(135deg,#ff6b35,#f7c59f);color:#fff;font-weight:bold;padding:12px 28px;border-radius:30px;text-decoration:none;font-size:14px;letter-spacing:.5px;box-shadow:0 6px 20px rgba(255,107,53,.35);transition:.3s;}
+.promo-btn:hover{transform:scale(1.05);box-shadow:0 10px 28px rgba(255,107,53,.5);}
+
+/* ─── WAVE SPOTS ─── */
+#wavespot{background:#f7f9fb;}
+#wavespot h2{text-align:center;margin-bottom:8px;}
+#wavespot .ws-subtitle{text-align:center;color:#666;font-size:15px;margin-bottom:40px;letter-spacing:.3px;}
+.ws-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+.ws-card{background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 4px 18px rgba(0,0,0,.08);transition:transform .35s ease,box-shadow .35s ease;opacity:0;transform:translateY(22px);cursor:pointer;}
+.ws-card.show{opacity:1;transform:translateY(0);}
+.ws-card:hover{transform:translateY(-6px) scale(1.02);box-shadow:0 18px 45px rgba(0,0,0,.15);}
+.ws-img-wrap{position:relative;width:100%;height:210px;overflow:hidden;}
+.ws-img-wrap img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .45s ease;}
+.ws-card:hover .ws-img-wrap img{transform:scale(1.07);}
+.ws-level{position:absolute;top:12px;left:12px;padding:4px 12px;border-radius:20px;font-size:11px;font-weight:bold;letter-spacing:.5px;text-transform:uppercase;}
+.ws-level.beginner{background:rgba(72,199,142,.9);color:#fff;}
+.ws-level.intermediate{background:rgba(255,184,0,.9);color:#fff;}
+.ws-level.advanced{background:rgba(255,82,82,.9);color:#fff;}
+.ws-body{padding:18px 20px 22px;}
+.ws-body h3{font-family:'Playfair Display';color:#111;font-size:19px;margin-bottom:8px;}
+.ws-body p{color:#555;font-size:13.5px;line-height:1.65;}
+.ws-meta{display:flex;gap:14px;margin-top:12px;flex-wrap:wrap;}
+.ws-meta span{font-size:12px;color:#888;display:flex;align-items:center;gap:4px;}
+.ws-meta svg{width:13px;height:13px;flex-shrink:0;}
+
+/* ─── MAP ─── */
+.map iframe{width:100%;height:400px;border-radius:20px;border:0;}
+
+/* ════════════════════
+   BOOKING SECTION
+════════════════════ */
+#booking { background: #f5f5f5; }
+
+.booking-form {
+  max-width: 560px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+  overflow: hidden;
+}
+.form-inner { padding: 32px; }
+
+.bk-field { margin-bottom: 20px; }
+.bk-field label {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: #888;
+  margin-bottom: 8px;
+}
+.bk-field input,
+.bk-field select,
+.bk-field textarea {
+  width: 100%;
+  padding: 13px 16px;
+  border: 1.5px solid #e8e8e8;
+  border-radius: 10px;
+  font-family: Poppins, sans-serif;
+  font-size: 14px;
+  color: #111;
+  background: #fafafa;
+  transition: border-color .2s, box-shadow .2s, background .2s;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+}
+.bk-field input:focus,
+.bk-field select:focus,
+.bk-field textarea:focus {
+  border-color: #111;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(0,0,0,.04);
+}
+.bk-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+/* Date input */
+.bk-field input[type="date"] {
+  width: 100%;
+  display: block;
+  -webkit-appearance: none;
+  appearance: none;
+  background: #fafafa;
+  color: #333;
+  min-height: 46px;
+  padding: 10px 12px;
+  font-family: Poppins, sans-serif;
+  font-size: 14px;
+  border: 1.5px solid #e8e8e8;
+  border-radius: 10px;
+  box-sizing: border-box;
+  cursor: pointer;
+  line-height: 1.4;
+}
+.bk-field input[type="date"]:focus {
+  border-color: #111;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(0,0,0,.04);
+}
+.bk-field input[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 0.6; cursor: pointer;
+}
+
+/* Number input arrows styling */
+.bk-field input[type="number"] {
+  -moz-appearance: textfield;
+}
+.bk-field input[type="number"]::-webkit-inner-spin-button,
+.bk-field input[type="number"]::-webkit-outer-spin-button {
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+/* Guest counter */
+.guest-counter {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  border: 1.5px solid #e8e8e8;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fafafa;
+  transition: border-color .2s, box-shadow .2s;
+}
+.guest-counter:focus-within {
+  border-color: #111;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(0,0,0,.04);
+}
+.guest-btn {
+  width: 46px;
+  height: 46px;
+  border: none;
+  background: transparent;
+  font-size: 20px;
+  font-weight: 300;
+  color: #555;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background .15s, color .15s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  font-family: Poppins, sans-serif;
+}
+.guest-btn:hover:not(:disabled) {
+  background: #f0f0f0;
+  color: #111;
+}
+.guest-btn:disabled {
+  color: #ccc;
+  cursor: not-allowed;
+}
+.guest-display {
+  flex: 1;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  color: #111;
+  font-family: Poppins, sans-serif;
+  pointer-events: none;
+}
+.guest-max-info {
+  font-size: 11px;
+  color: #aaa;
+  margin-top: 6px;
+  letter-spacing: .3px;
+}
+
+/* ══ ROOM & PROMO OPTIONS — LEBIH JELAS ══ */
+.room-options, .promo-options { display: flex; flex-direction: column; gap: 10px; }
+
+.room-option, .promo-option {
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 14px 16px;
+  cursor: pointer;
+  transition: border-color .2s, background .2s, box-shadow .2s, transform .15s;
+  background: #fafafa;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  user-select: none;
+  position: relative;
+}
+.room-option:hover, .promo-option:hover {
+  border-color: #999;
+  background: #f4f4f4;
+  transform: translateX(2px);
+}
+
+/* ── SELECTED STATE — tebal & kontras ── */
+.room-option.selected, .promo-option.selected {
+  border-color: #111;
+  background: #111;
+  box-shadow: 0 4px 18px rgba(0,0,0,.18);
+}
+.room-option.selected .opt-name,
+.promo-option.selected .opt-name {
+  color: #fff;
+}
+.room-option.selected .opt-sub,
+.promo-option.selected .opt-sub {
+  color: rgba(255,255,255,.6);
+}
+.room-option.selected .room-price {
+  color: #fff;
+}
+.room-option.selected .promo-badge-tag {
+  background: #fff;
+  color: #111;
+}
+
+/* ── RADIO DOT — lebih besar & jelas ── */
+.opt-dot {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2.5px solid #ccc;
+  flex-shrink: 0;
+  transition: border-color .2s, background .2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+}
+.room-option.selected .opt-dot,
+.promo-option.selected .opt-dot {
+  border-color: #fff;
+  background: transparent;
+}
+.room-option.selected .opt-dot::after,
+.promo-option.selected .opt-dot::after {
+  content: '';
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #fff;
+  display: block;
+}
+
+/* ── CHECKMARK BADGE TOP-RIGHT saat selected ── */
+.room-option::after, .promo-option::after {
+  content: '✓';
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  width: 24px;
+  height: 24px;
+  background: #111;
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 0 10px 0 10px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  line-height: 24px;
+  text-align: center;
+}
+.room-option.selected::after, .promo-option.selected::after {
+  display: flex;
+}
+
+/* ── DISABLED promo ── */
+.promo-option.promo-disabled {
+  opacity: 0.42;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+.room-info, .promo-detail { flex: 1; }
+.opt-name { font-size: 14px; font-weight: 600; color: #111; transition: color .2s; }
+.opt-sub { font-size: 12px; color: #888; margin-top: 2px; transition: color .2s; }
+.room-price { font-size: 13px; font-weight: 700; color: #111; white-space: nowrap; transition: color .2s; }
+
+.promo-badge-tag {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .8px;
+  background: #111;
+  color: #fff;
+  padding: 3px 9px;
+  border-radius: 20px;
+  white-space: nowrap;
+  transition: background .2s, color .2s;
+}
+
+/* Promo info message */
+#promo-msg {
+  display: none;
+  font-size: 12px;
+  color: #b94a00;
+  background: #fff5f0;
+  border: 1px solid #f5c9b0;
+  border-radius: 8px;
+  padding: 8px 12px;
+  margin-top: 8px;
+  line-height: 1.5;
+}
+
+/* Summary */
+.bk-summary {
+  background: #111;
+  color: #fff;
+  padding: 24px 32px;
+}
+.sum-title {
+  font-size: 11px; letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.5);
+  margin-bottom: 14px; font-weight: 600;
+}
+.sum-rows { display: flex; flex-direction: column; gap: 6px; margin-bottom: 20px; }
+.sum-row {
+  display: flex; justify-content: space-between;
+  font-size: 13px; color: rgba(255,255,255,.75);
+}
+.sum-row.total {
+  color: #fff; font-weight: 600; font-size: 15px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255,255,255,.15);
+  margin-top: 4px;
+}
+.bk-submit {
+  width: 100%;
+  background: #fff;
+  color: #111;
+  border: none;
+  padding: 15px;
+  border-radius: 10px;
+  font-family: Poppins, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  letter-spacing: .5px;
+  transition: background .2s, transform .15s;
+}
+.bk-submit:hover { background: #f0f0f0; transform: scale(1.01); }
+
+/* ════════════════════════
+   RESPONSIVE
+════════════════════════ */
+
+@media(min-width:1601px){
+  nav{padding:16px 80px;}
+  .logo{width:70px;}.logo-text{font-size:16px;letter-spacing:3px;}
+  .menu a{font-size:16px;padding:10px 18px;margin:0 4px;}
+  .hero-logo{width:320px;}.hero-text{font-size:64px;}
+  .btn{padding:16px 40px;font-size:18px;}
+  section{padding:90px 10%;}
+  h2{font-size:50px;margin-bottom:28px;}
+  .cards{gap:28px;}.cards .card img{height:280px;}
+  .gallery img{height:320px;}
+  .ws-grid{grid-template-columns:repeat(4,1fr);gap:28px;}
+  .ws-img-wrap{height:280px;}.ws-body h3{font-size:24px;}.ws-body p{font-size:16px;}
+  .promo-card{max-width:900px;}.promo-img-wrap{height:420px;}
+  .promo-body h3{font-size:32px;}.promo-body p{font-size:17px;}
+  .map iframe{height:550px;}
+  .booking-form{max-width:680px;}
+  .form-inner{padding:40px;}
+  .bk-summary{padding:28px 40px;}
+  .bk-field input,.bk-field select,.bk-field textarea{font-size:16px;padding:14px 18px;}
+  .bk-field input[type="date"]{font-size:16px;min-height:52px;padding:12px 18px;}
+  .opt-name{font-size:16px;}.opt-sub{font-size:13px;}.room-price{font-size:15px;}
+  .bk-submit{font-size:16px;padding:17px;}
+  .contact-item{font-size:18px;}
+  footer{font-size:16px;padding:28px;}
+}
+
+@media(min-width:1281px) and (max-width:1600px){
+  .ws-grid{grid-template-columns:repeat(4,1fr);}
+}
+
+@media(min-width:769px){
+  .menu{display:flex;position:static;flex-direction:row;background:transparent;opacity:1;transform:none;pointer-events:auto;padding:0;}
+  .menu a{margin:0 4px;padding:8px 14px;color:#fff;text-decoration:none;font-weight:bold;font-size:14px;border-radius:10px;transition:.1s;}
+  .menu a:hover,.menu a.active{background:rgba(255,255,255,.1);}
+  .hamburger{display:none;}
+}
+
+@media(min-width:769px) and (max-width:1280px){
+  nav{padding:12px 24px;}
+  .logo{width:46px;}.logo-text{font-size:11px;letter-spacing:1.5px;}
+  .menu a{font-size:12px;padding:7px 10px;margin:0 2px;}
+  .hero-logo{width:180px;}.hero-text{font-size:32px;}
+  section{padding:60px 6%;}
+  h2{font-size:30px;}
+  .ws-grid{grid-template-columns:repeat(3,1fr);}
+}
+
+@media(max-width:768px){
+  nav{padding:10px 18px;}
+  .logo{width:42px;}.logo-text{font-size:10px;letter-spacing:1.5px;}
+  .hamburger{display:block;font-size:28px;cursor:pointer;color:#fff;padding:4px 8px;line-height:1;}
+  .menu{
+    display:flex;position:absolute;top:68px;right:16px;
+    flex-direction:column;background:rgba(0,0,0,.88);
+    backdrop-filter:blur(15px);border-radius:16px;padding:12px;
+    opacity:0;transform:translateY(-20px) scale(.95);
+    pointer-events:none;transition:.2s ease;min-width:180px;
+  }
+  .menu.show{opacity:1;transform:translateY(0) scale(1);pointer-events:auto;}
+  .menu a{margin:5px 0;padding:10px 16px;color:#fff;text-decoration:none;font-weight:bold;font-size:15px;border-radius:10px;transition:.1s;}
+  .menu a:hover,.menu a.active{background:rgba(255,255,255,.1);}
+  header{height:100svh;}
+  .hero-logo{width:160px;}.hero-text{font-size:26px;}
+  .btn{padding:11px 26px;font-size:14px;}
+  section{padding:50px 5%;scroll-margin-top:80px;}
+  h2{font-size:26px;}
+  .bk-row-2{grid-template-columns:1fr;}
+  .bk-field input,.bk-field select,.bk-field textarea{font-size:16px;}
+  .bk-field input[type="date"]{font-size:16px;min-height:48px;padding:11px 12px;}
+  .ws-grid{grid-template-columns:1fr;gap:16px;}
+  .ws-img-wrap{height:230px;}
+  .ws-body{padding:16px 18px 20px;}
+  .ws-body h3{font-size:18px;}.ws-body p{font-size:14px;}
+  .cards{grid-template-columns:1fr;gap:16px;}
+  .cards .card img{height:200px;}
+  .gallery{grid-template-columns:1fr;gap:12px;}
+  .gallery img{height:200px;}
+  .map iframe{height:260px;}
+  .contact-item{font-size:14px;}
+  footer{font-size:13px;padding:16px;}
+  .promo-img-wrap{height:220px;}
+  .promo-body{padding:20px;}
+  .promo-body h3{font-size:20px;}
+}
+
+@media(min-width:500px) and (max-width:768px){
+  .ws-grid{grid-template-columns:repeat(2,1fr);}
+  .ws-img-wrap{height:190px;}
+  .cards{grid-template-columns:repeat(2,1fr);}
+  .gallery{grid-template-columns:repeat(2,1fr);}
+}
+
+@media(max-width:499px){
+  .hero-logo{width:140px;}.hero-text{font-size:22px;}
+  h2{font-size:24px;}
+  section{padding:44px 5%;}
+  .ws-grid{grid-template-columns:1fr;}
+  .ws-img-wrap{height:220px;}
+  .bk-field input[type="date"]{font-size:16px;min-height:48px;padding:11px 10px;}
+}
+
+@media(max-width:400px){
+  .hero-logo{width:120px;}.hero-text{font-size:19px;}
+  h2{font-size:20px;}
+  section{padding:36px 4%;}
+  .form-inner{padding:20px 16px;}
+  .bk-summary{padding:20px 16px;}
+  .logo{width:36px;}.logo-text{font-size:9px;}
+  .hamburger{font-size:24px;}
+  .ws-grid{grid-template-columns:1fr;}
+  .ws-img-wrap{height:210px;}
+  .bk-field input[type="date"]{font-size:16px;min-height:46px;padding:10px 8px;}
+}
+
+@media(max-width:240px){
+  .logo-text{display:none;}
+  .logo{width:28px;}
+  nav{padding:6px 8px;}
+  .hamburger{font-size:20px;padding:3px 6px;}
+  .menu{top:50px;right:6px;min-width:130px;padding:8px;}
+  .menu a{font-size:12px;padding:7px 10px;margin:3px 0;}
+  header{padding:55px 8px 28px;height:auto;min-height:100svh;}
+  .hero-logo{width:68px;}
+  .hero-text{font-size:11px;line-height:1.4;letter-spacing:0;}
+  .btn{padding:7px 14px;font-size:10px;margin-top:10px;border-radius:20px;}
+  h2{font-size:13px;margin-bottom:10px;}
+  section{padding:18px 4%;scroll-margin-top:55px;}
+  .ws-grid,.cards,.gallery{grid-template-columns:1fr;gap:8px;}
+  .ws-img-wrap{height:110px;}
+  .ws-body{padding:10px 11px 13px;}
+  .ws-body h3{font-size:12px;margin-bottom:3px;}
+  .ws-body p{font-size:10.5px;line-height:1.5;}
+  .ws-meta{gap:6px;margin-top:5px;}
+  .ws-meta span{font-size:9.5px;}
+  .ws-level{font-size:8.5px;padding:3px 7px;top:8px;left:8px;}
+  .cards .card{padding:10px;border-radius:10px;}
+  .cards .card img{height:100px;border-radius:7px;}
+  .gallery img{height:110px;border-radius:10px;}
+  .promo-img-wrap{height:130px;}
+  .promo-body{padding:12px;}
+  .promo-body h3{font-size:13px;margin-bottom:6px;}
+  .promo-body p{font-size:10.5px;margin-bottom:12px;}
+  .promo-btn{padding:7px 14px;font-size:10px;}
+  .promo-badge{font-size:9px;padding:4px 10px;top:8px;right:8px;}
+  .map iframe{height:170px;border-radius:12px;}
+  .form-inner{padding:10px 8px;}
+  .bk-field input,.bk-field select,.bk-field textarea{font-size:12px;padding:8px;border-radius:6px;}
+  .bk-field input[type="date"]{font-size:12px;min-height:36px;padding:7px 8px;}
+  .bk-submit{font-size:11px;padding:9px;}
+  .contact-item{font-size:11px;gap:7px;margin:10px 0;}
+  .contact-item img{width:16px;height:16px;}
+  footer{font-size:10px;padding:10px;}
+  #wavespot .ws-subtitle{font-size:11px;margin-bottom:20px;}
+  #promo .promo-subtitle{font-size:11px;margin-bottom:20px;}
+  .guest-btn{width:36px;height:36px;font-size:16px;}
+  .guest-display{font-size:12px;}
+  .guest-max-info{font-size:10px;}
+}
+
+@media(max-width:768px) and (orientation:landscape){
+  header{height:auto;padding:90px 20px 50px;}
+  .ws-grid{grid-template-columns:repeat(2,1fr);}
+}
+
+@media print{
+  nav,.hamburger,.btn{display:none!important;}
+  header{height:auto;padding:40px 20px;}
+  section{padding:30px 5%;}
+  .fade,.cards .card,.gallery img,.promo-card,.ws-card{opacity:1!important;transform:none!important;}
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <div class="logo-wrap">
+    <img src="Paddarai Surf Lodge logo design 2.png" class="logo">
+    <span class="logo-text">PADDARAI SURF LODGE</span>
+  </div>
+  <div class="hamburger" onclick="toggleMenu()">☰</div>
+  <div class="menu">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#rooms">Rooms</a>
+    <a href="#promo">Promo</a>
+    <a href="#wavespot">Wave Spot</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#contact">Contact</a>
+    <a href="#location">Location</a>
+    <a href="#booking">Booking</a>
+  </div>
+</nav>
+
+<header id="home">
+  <div>
+    <img src="Paddarai Surf Lodge logo design 2.png" class="hero-logo">
+    <div class="hero-text">PADDARAI SURF LODGE</div>
+    <a href="#booking" class="btn">Book Now</a>
+  </div>
+</header>
+
+<section id="about" class="fade">
+  <h2>About Us</h2>
+  <p>At Paddarai surf lodge, we believe a getaway should feel like coming home. Surrounded by nature and just steps from the waves, our lodge offers a cozy and welcoming space where surfers and travelers can relax, recharge, and enjoy unforgettable surf adventures. Whether you're chasing the perfect swell or simply soaking in the peaceful surroundings, every moment here is meant for your comfort, joy, and connection with nature.</p>
+</section>
+
+<section id="rooms" class="fade">
+  <h2>Our Rooms</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>Room 1</h3>
+      <p>$45 / Person / night</p>
+      <img src="room 1.jpeg" alt="Room 1">
+    </div>
+    <div class="card">
+      <h3>Room 2</h3>
+      <p>$90 / night</p>
+      <img src="room 2.jpeg" alt="Room 2">
+    </div>
+    <div class="card">
+      <h3>Room 3</h3>
+      <p>$90 / night</p>
+      <img src="room 3.jpeg" alt="Room 3">
+    </div>
+  </div>
+</section>
+
+<section id="promo">
+  <h2>Special Promo</h2>
+  <p class="promo-subtitle">Penawaran terbatas — jangan sampai terlewat!</p>
+  <div class="promo-card fade">
+    <div class="promo-img-wrap">
+      <img src="Promo.png" alt="Promo Paddarai Surf Lodge">
+      <div class="promo-badge">LIMITED OFFER</div>
+    </div>
+    <div class="promo-body">
+      <h3>7 Nights Surf Package — Save $15/night</h3>
+      <p>Book a 7-night stay and enjoy $15 off per night on your total accommodation. Package includes daily breakfast, surf board rental, and one guided surf session. Valid for bookings made before 31 August 2026. Minimum 2 guests.</p>
+      <a href="#booking" class="promo-btn">Book This Promo</a>
+    </div>
+  </div>
+</section>
+
+<section id="wavespot">
+  <h2>Wave Spots</h2>
+  <p class="ws-subtitle">Explore the best breaks around Paddarai — from mellow rollers to hollow barrels</p>
+  <div class="ws-grid">
+
+    <div class="ws-card">
+      <div class="ws-img-wrap">
+        <img src="Roxies.jpeg" alt="Roxi's">
+        <div class="ws-level intermediate">Intermediate</div>
+      </div>
+      <div class="ws-body">
+        <h3>Roxi's</h3>
+        <p>Roxi's is one of the closest waves to Paddarai Surf Lodge, featuring consistent, long, powerful reef breaks that can get even bigger during the rainy season—perfect for beginners</p>
+        <div class="ws-meta">
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>Malakopa</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 20 L12 4 L22 20"/><line x1="6" y1="14" x2="18" y2="14"/></svg>3–12 ft</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="ws-card">
+      <div class="ws-img-wrap">
+        <img src="rags left.jpeg" alt="Rags Left">
+        <div class="ws-level advanced">Advanced</div>
+      </div>
+      <div class="ws-body">
+        <h3>Rags Left</h3>
+        <p>Powerful hollow right breaking over shallow reef. Favoured by experienced surfers for its fast, barreling sections on larger swells.</p>
+        <div class="ws-meta">
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>Petojetsabu Island</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 20 L12 4 L22 20"/><line x1="6" y1="14" x2="18" y2="14"/></svg>3–15 ft</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="ws-card">
+      <div class="ws-img-wrap">
+        <img src="rags right.jpeg" alt="Rags Right">
+        <div class="ws-level beginner">Beginner</div>
+      </div>
+      <div class="ws-body">
+        <h3>Rags Right</h3>
+        <p>Gentle, slow-breaking waves over a sandy bottom — the ideal spot to learn and build confidence in a beautiful, uncrowded setting.</p>
+        <div class="ws-meta">
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>Petojetsabu Island</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 20 L12 4 L22 20"/><line x1="6" y1="14" x2="18" y2="14"/></svg>3–10 ft</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="ws-card">
+      <div class="ws-img-wrap">
+        <img src="Thunders.jpeg" alt="Thunders">
+        <div class="ws-level advanced">Advanced</div>
+      </div>
+      <div class="ws-body">
+        <h3>Thunders</h3>
+        <p>A remote A-frame peak accessed only by boat, breaking both left and right into deep water. Rarely surfed — a true hidden gem of the Mentawai chain.</p>
+        <div class="ws-meta">
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>Sibigau Island</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 20 L12 4 L22 20"/><line x1="6" y1="14" x2="18" y2="14"/></svg>3–12 ft</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="ws-card">
+      <div class="ws-img-wrap">
+        <img src="rednuht.jpeg" alt="Rednuht">
+        <div class="ws-level intermediate">Intermediate</div>
+      </div>
+      <div class="ws-body">
+        <h3>Rednuht</h3>
+        <p>A classic right-point break that works best on the afternoon glass. Famous for its scenic backdrop and long, workable walls perfect for cutbacks.</p>
+        <div class="ws-meta">
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>Sibigau Island</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 20 L12 4 L22 20"/><line x1="6" y1="14" x2="18" y2="14"/></svg>4–12 ft</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="ws-card">
+      <div class="ws-img-wrap">
+        <img src="greenbush.jpeg" alt="Greenbush">
+        <div class="ws-level intermediate">Intermediate</div>
+      </div>
+      <div class="ws-body">
+        <h3>Greenbush</h3>
+        <p>Crystal-clear water, turquoise reef, and mechanical lefts that peel for over 200 meters. One of the most photogenic and consistent breaks near the lodge.</p>
+        <div class="ws-meta">
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>Betumonga</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 20 L12 4 L22 20"/><line x1="6" y1="14" x2="18" y2="14"/></svg>2–6 ft</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="ws-card">
+      <div class="ws-img-wrap">
+        <img src="Macaronis.jpeg" alt="Macaronis">
+        <div class="ws-level advanced">Advanced</div>
+      </div>
+      <div class="ws-body">
+        <h3>Macaronis</h3>
+        <p>One of the most iconic right-handers in the Mentawai archipelago. This world-class reef break delivers long, perfectly shaped tubes that challenge even the most seasoned surfers.</p>
+        <div class="ws-meta">
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>Silabu</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 20 L12 4 L22 20"/><line x1="6" y1="14" x2="18" y2="14"/></svg>5–12 ft</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="gallery" class="fade">
+  <h2>Gallery</h2>
+  <div class="gallery">
+    <img src="20240122_153913.jpg" alt="Gallery 1">
+    <img src="IMG_20221013_011744_541.jpg" alt="Gallery 2">
+    <img src="20231222_181700.jpg" alt="Gallery 3">
+  </div>
+</section>
+
+<section id="contact" class="fade">
+  <h2>Contact</h2>
+  <div style="max-width:400px;margin:auto;">
+    <a href="https://wa.me/6281374192584" target="_blank" class="contact-item">
+      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg" alt="WhatsApp"> +62-813-7419-2584
+    </a>
+    <a href="https://www.instagram.com/paddaraisurflodge?igsh=aXNxMnZkemkwaWNm&utm_source=qr" target="_blank" class="contact-item">
+      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram"> @paddaraisurflodge
+    </a>
+    <a href="mailto:paddaraisurflodge@gmail.com" class="contact-item">
+      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/gmail.svg" alt="Gmail"> paddaraisurflodge@gmail.com
+    </a>
+  </div>
+</section>
+
+<section id="location" class="fade">
+  <h2>Location</h2>
+  <div class="map">
+    <iframe src="https://www.google.com/maps?q=-2.954758,100.193892&output=embed" allowfullscreen loading="lazy"></iframe>
+  </div>
+</section>
+
+<!-- ══════════════════════════════
+     BOOKING SECTION
+══════════════════════════════ -->
+<section id="booking" class="fade">
+  <h2>Booking</h2>
+
+  <div class="booking-form">
+    <div class="form-inner">
+
+      <!-- Name & Email -->
+      <div class="bk-row-2">
+        <div class="bk-field">
+          <label>Name</label>
+          <input type="text" id="bk-nama" placeholder="Your full name" required>
+        </div>
+        <div class="bk-field">
+          <label>Email</label>
+          <input type="email" id="bk-email" placeholder="your@email.com" required>
+        </div>
+      </div>
+
+      <!-- Room Selection -->
+      <div class="bk-field">
+        <label>Select Room</label>
+        <div class="room-options">
+          <div class="room-option selected" onclick="selectRoom(this,45,'Room 1','Per person / night',4)">
+            <div class="opt-dot"></div>
+            <div class="room-info">
+              <div class="opt-name">Room 1</div>
+              <div class="opt-sub">Per person / night &nbsp;·&nbsp; Max 4 guests</div>
+            </div>
+            <div class="room-price">$45</div>
+          </div>
+          <div class="room-option" onclick="selectRoom(this,90,'Room 2','Per night',2)">
+            <div class="opt-dot"></div>
+            <div class="room-info">
+              <div class="opt-name">Room 2</div>
+              <div class="opt-sub">Per night &nbsp;·&nbsp; Max 2 guests</div>
+            </div>
+            <div class="room-price">$90</div>
+          </div>
+          <div class="room-option" onclick="selectRoom(this,90,'Room 3','Per night',2)">
+            <div class="opt-dot"></div>
+            <div class="room-info">
+              <div class="opt-name">Room 3</div>
+              <div class="opt-sub">Per night &nbsp;·&nbsp; Max 2 guests</div>
+            </div>
+            <div class="room-price">$90</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Number of Guests -->
+      <div class="bk-field">
+        <label>Number of Guests</label>
+        <div class="guest-counter">
+          <button class="guest-btn" id="guest-minus" onclick="changeGuests(-1)" type="button" disabled>−</button>
+          <div class="guest-display" id="guest-display">1 Guest</div>
+          <button class="guest-btn" id="guest-plus" onclick="changeGuests(1)" type="button">+</button>
+        </div>
+        <div class="guest-max-info" id="guest-max-info">Maximum 4 guests for Room 1</div>
+      </div>
+
+      <!-- Promo -->
+      <div class="bk-field">
+        <label>Promo</label>
+        <div class="promo-options">
+          <div class="promo-option selected" onclick="selectPromo(this,0,'No Promo')">
+            <div class="opt-dot"></div>
+            <div class="promo-detail">
+              <div class="opt-name">No Promo</div>
+              <div class="opt-sub">Standard rate applies</div>
+            </div>
+          </div>
+          <div class="promo-option promo-disabled" id="promo-surf-pkg" onclick="selectPromo(this,15,'7 Nights Surf Package — Save $15/night')">
+            <div class="opt-dot"></div>
+            <div class="promo-detail">
+              <div class="opt-name">7 Nights Surf Package</div>
+              <div class="opt-sub">Breakfast, board rental &amp; 1 guided surf session included</div>
+            </div>
+            <div class="promo-badge-tag">-$15/night</div>
+          </div>
+        </div>
+        <p id="promo-msg">Pilih tanggal check-in &amp; check-out untuk melihat kelayakan promo.</p>
+      </div>
+
+      <!-- Dates -->
+      <div class="bk-row-2">
+        <div class="bk-field">
+          <label>Check In</label>
+          <input type="date" id="bk-in" required>
+        </div>
+        <div class="bk-field">
+          <label>Check Out</label>
+          <input type="date" id="bk-out" required>
+        </div>
+      </div>
+
+      <!-- Currency -->
+      <div class="bk-field">
+        <label>Currency</label>
+        <select id="bk-currency" onchange="bkUpdateSummary()">
+          <option value="USD">USD — US Dollar</option>
+          <option value="IDR">IDR — Indonesian Rupiah</option>
+          <option value="EUR">EUR — Euro</option>
+          <option value="GBP">GBP — British Pound</option>
+          <option value="AUD">AUD — Australian Dollar</option>
+          <option value="SGD">SGD — Singapore Dollar</option>
+          <option value="JPY">JPY — Japanese Yen</option>
+          <option value="CAD">CAD — Canadian Dollar</option>
+          <option value="CHF">CHF — Swiss Franc</option>
+          <option value="MYR">MYR — Malaysian Ringgit</option>
+          <option value="THB">THB — Thai Baht</option>
+          <option value="KRW">KRW — Korean Won</option>
+          <option value="CNY">CNY — Chinese Yuan</option>
+          <option value="HKD">HKD — Hong Kong Dollar</option>
+          <option value="NZD">NZD — New Zealand Dollar</option>
+          <option value="SEK">SEK — Swedish Krona</option>
+          <option value="NOK">NOK — Norwegian Krone</option>
+          <option value="DKK">DKK — Danish Krone</option>
+          <option value="BRL">BRL — Brazilian Real</option>
+          <option value="MXN">MXN — Mexican Peso</option>
+          <option value="INR">INR — Indian Rupee</option>
+          <option value="PHP">PHP — Philippine Peso</option>
+          <option value="VND">VND — Vietnamese Dong</option>
+          <option value="ZAR">ZAR — South African Rand</option>
+          <option value="AED">AED — UAE Dirham</option>
+          <option value="SAR">SAR — Saudi Riyal</option>
+          <option value="QAR">QAR — Qatari Riyal</option>
+          <option value="TRY">TRY — Turkish Lira</option>
+          <option value="RUB">RUB — Russian Ruble</option>
+          <option value="PLN">PLN — Polish Zloty</option>
+        </select>
+      </div>
+
+      <!-- Message -->
+      <div class="bk-field">
+        <label>Additional Message</label>
+        <textarea id="bk-pesan" placeholder="Any special requests or questions..." rows="4" style="resize:vertical;"></textarea>
+      </div>
+
+    </div>
+
+    <!-- Summary + Submit -->
+    <div class="bk-summary">
+      <div class="sum-title">Booking Summary</div>
+      <div class="sum-rows">
+        <div class="sum-row"><span>Room</span><span id="sum-room">Room 1</span></div>
+        <div class="sum-row"><span>Guests</span><span id="sum-guests">1 Guest</span></div>
+        <div class="sum-row"><span>Check In</span><span id="sum-in">—</span></div>
+        <div class="sum-row"><span>Check Out</span><span id="sum-out">—</span></div>
+        <div class="sum-row"><span>Duration</span><span id="sum-nights">—</span></div>
+        <div class="sum-row"><span>Rate / night</span><span id="sum-rate">—</span></div>
+        <div class="sum-row"><span>Promo</span><span id="sum-promo">None</span></div>
+        <div class="sum-row total"><span>Total</span><span id="sum-total">—</span></div>
+      </div>
+      <button class="bk-submit" onclick="bkSendWA()">Send to WhatsApp</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Paddarai Surf Lodge - Mentawai Surf Lodge</p>
+</footer>
+
+<script>
+/* ── NAV ── */
+const navbar    = document.querySelector("nav");
+const sections  = document.querySelectorAll("section, header");
+const menuLinks = document.querySelectorAll(".menu a");
+const menu      = document.querySelector(".menu");
+
+function toggleMenu(){ menu.classList.toggle("show"); }
+menuLinks.forEach(link => link.addEventListener("click", () => menu.classList.remove("show")));
+document.addEventListener("click", e => {
+  if(!menu.contains(e.target) && !e.target.classList.contains("hamburger"))
+    menu.classList.remove("show");
+});
+
+function revealElements(){
+  const els = [
+    ...document.querySelectorAll('.fade'),
+    ...document.querySelectorAll('.cards .card'),
+    ...document.querySelectorAll('.gallery img'),
+    ...document.querySelectorAll('.promo-card'),
+    ...document.querySelectorAll('.ws-card')
+  ];
+  els.forEach((el,i) => {
+    if(el.getBoundingClientRect().top < window.innerHeight - 60)
+      setTimeout(() => el.classList.add("show"), i * 50);
+  });
+}
+
+window.addEventListener("scroll", () => {
+  navbar.classList.toggle("scrolled", window.scrollY > 80);
+  revealElements();
+  let current = "";
+  sections.forEach(sec => {
+    if(window.scrollY >= sec.offsetTop - 150 &&
+       window.scrollY < sec.offsetTop - 150 + sec.offsetHeight)
+      current = sec.getAttribute("id");
+  });
+  menuLinks.forEach(a => {
+    a.classList.remove("active");
+    if(a.getAttribute("href") === "#" + current) a.classList.add("active");
+  });
+}, {passive:true});
+window.addEventListener("load", revealElements);
+
+/* ── BOOKING ── */
+const BK_RATES = {
+  USD:1, IDR:16300, EUR:0.92, GBP:0.79, AUD:1.53,
+  SGD:1.34, JPY:154, CAD:1.36, CHF:0.90, MYR:4.70,
+  THB:35.5, KRW:1340, CNY:7.26, HKD:7.82, NZD:1.63,
+  SEK:10.4, NOK:10.6, DKK:6.88, BRL:4.97, MXN:17.1,
+  INR:83.5, PHP:56.5, VND:25000, ZAR:18.7, AED:3.67,
+  SAR:3.75, QAR:3.64, TRY:32.5, RUB:91, PLN:3.99
+};
+const BK_SYM = {
+  USD:'$', IDR:'Rp', EUR:'€', GBP:'£', AUD:'A$', SGD:'S$',
+  JPY:'¥', CAD:'C$', CHF:'CHF ', MYR:'RM', THB:'฿', KRW:'₩',
+  CNY:'¥', HKD:'HK$', NZD:'NZ$', SEK:'kr', NOK:'kr', DKK:'kr',
+  BRL:'R$', MXN:'$', INR:'₹', PHP:'₱', VND:'₫', ZAR:'R',
+  AED:'د.إ ', SAR:'﷼', QAR:'﷼', TRY:'₺', RUB:'₽', PLN:'zł'
+};
+const BK_NO_DEC = ['IDR','JPY','KRW','VND'];
+
+/* Promo config */
+const PROMO_DEADLINE    = '2026-08-31';
+const PROMO_MIN_NIGHTS  = 7;
+
+let bkRoomUSD   = 45;
+let bkRoomName  = 'Room 1';
+let bkDiscount  = 0;
+let bkPromoName = 'No Promo';
+let bkMaxGuests = 4;  /* default Room 1 */
+let bkGuests    = 1;
+
+/* ── GUEST COUNTER ── */
+function updateGuestUI(){
+  const display = document.getElementById('guest-display');
+  const minus   = document.getElementById('guest-minus');
+  const plus    = document.getElementById('guest-plus');
+  const info    = document.getElementById('guest-max-info');
+  display.textContent = bkGuests + (bkGuests === 1 ? ' Guest' : ' Guests');
+  minus.disabled = bkGuests <= 1;
+  plus.disabled  = bkGuests >= bkMaxGuests;
+  info.textContent = 'Maximum ' + bkMaxGuests + ' guests for ' + bkRoomName;
+  bkUpdateSummary();
+}
+
+function changeGuests(delta){
+  bkGuests = Math.min(bkMaxGuests, Math.max(1, bkGuests + delta));
+  updateGuestUI();
+}
+
+/* Block past dates */
+const todayStr = new Date().toISOString().split('T')[0];
+document.getElementById('bk-in').setAttribute('min', todayStr);
+document.getElementById('bk-out').setAttribute('min', todayStr);
+
+document.getElementById('bk-in').addEventListener('change', function(){
+  const v = this.value;
+  document.getElementById('bk-out').setAttribute('min', v || todayStr);
+  const outVal = document.getElementById('bk-out').value;
+  if(outVal && outVal <= v) document.getElementById('bk-out').value = '';
+  bkCheckPromoEligibility();
+  bkUpdateSummary();
+});
+document.getElementById('bk-out').addEventListener('change', function(){
+  bkCheckPromoEligibility();
+  bkUpdateSummary();
+});
+
+/* ── Cek kelayakan promo ── */
+function bkCheckPromoEligibility(){
+  const inVal    = document.getElementById('bk-in').value;
+  const outVal   = document.getElementById('bk-out').value;
+  const promoOpt = document.getElementById('promo-surf-pkg');
+  const promoMsg = document.getElementById('promo-msg');
+
+  let eligible = false;
+  let reason   = '';
+
+  if(inVal && outVal && outVal > inVal){
+    const nights        = Math.round((new Date(outVal) - new Date(inVal)) / 86400000);
+    const checkoutValid = outVal <= PROMO_DEADLINE;
+
+    if(nights < PROMO_MIN_NIGHTS && !checkoutValid){
+      reason = 'Promo membutuhkan minimal 7 malam & check-out sebelum 31 Agustus 2026.';
+    } else if(nights < PROMO_MIN_NIGHTS){
+      reason = 'Promo membutuhkan minimal 7 malam menginap.';
+    } else if(!checkoutValid){
+      reason = 'Promo hanya berlaku untuk check-out sebelum 31 Agustus 2026.';
+    } else {
+      eligible = true;
+    }
+  } else {
+    reason = 'Pilih tanggal check-in & check-out untuk melihat kelayakan promo.';
+  }
+
+  promoOpt.classList.toggle('promo-disabled', !eligible);
+  promoMsg.style.display = eligible ? 'none' : 'block';
+  promoMsg.textContent   = reason;
+
+  if(!eligible && bkDiscount > 0){
+    selectPromo(document.querySelector('.promo-option:first-child'), 0, 'No Promo');
+  }
+}
+
+function selectRoom(el, priceUSD, name, sub, maxGuests){
+  document.querySelectorAll('.room-option').forEach(r => r.classList.remove('selected'));
+  el.classList.add('selected');
+  bkRoomUSD   = priceUSD;
+  bkRoomName  = name;
+  bkMaxGuests = maxGuests;
+  /* Clamp guests to new max */
+  if(bkGuests > bkMaxGuests) bkGuests = bkMaxGuests;
+  updateGuestUI();
+}
+
+function selectPromo(el, discount, name){
+  document.querySelectorAll('.promo-option').forEach(p => p.classList.remove('selected'));
+  el.classList.add('selected');
+  bkDiscount  = discount;
+  bkPromoName = name;
+  bkUpdateSummary();
+}
+
+function bkFmt(amountUSD){
+  const cur = document.getElementById('bk-currency').value;
+  const val = amountUSD * BK_RATES[cur];
+  const sym = BK_SYM[cur];
+  return BK_NO_DEC.includes(cur)
+    ? sym + Math.round(val).toLocaleString()
+    : sym + val.toLocaleString(undefined, {minimumFractionDigits:2, maximumFractionDigits:2});
+}
+
+function bkUpdateSummary(){
+  const inVal  = document.getElementById('bk-in').value;
+  const outVal = document.getElementById('bk-out').value;
+
+  document.getElementById('sum-room').textContent   = bkRoomName;
+  document.getElementById('sum-guests').textContent = bkGuests + (bkGuests === 1 ? ' Guest' : ' Guests');
+  document.getElementById('sum-in').textContent     = inVal  ? new Date(inVal  + 'T00:00:00').toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'}) : '—';
+  document.getElementById('sum-out').textContent    = outVal ? new Date(outVal + 'T00:00:00').toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'}) : '—';
+  document.getElementById('sum-promo').textContent  = bkDiscount > 0 ? '-$' + bkDiscount + '/night' : 'None';
+
+  if(inVal && outVal && outVal > inVal){
+    const nights = Math.round((new Date(outVal) - new Date(inVal)) / 86400000);
+    document.getElementById('sum-nights').textContent = nights + (nights === 1 ? ' night' : ' nights');
+    document.getElementById('sum-rate').textContent   = bkFmt(bkRoomUSD) + ' / night';
+    const total = (bkRoomUSD - bkDiscount) * nights;
+    document.getElementById('sum-total').textContent  = bkFmt(total);
+  } else {
+    document.getElementById('sum-nights').textContent = '—';
+    document.getElementById('sum-rate').textContent   = bkFmt(bkRoomUSD) + ' / night';
+    document.getElementById('sum-total').textContent  = '—';
+  }
+}
+
+/* Init */
+bkUpdateSummary();
+bkCheckPromoEligibility();
+updateGuestUI();
+
+function bkSendWA(){
+  const nama   = document.getElementById('bk-nama').value.trim();
+  const email  = document.getElementById('bk-email').value.trim();
+  const inVal  = document.getElementById('bk-in').value;
+  const outVal = document.getElementById('bk-out').value;
+  const pesan  = document.getElementById('bk-pesan').value.trim();
+  const cur    = document.getElementById('bk-currency').value;
+
+  if(!nama || !email || !inVal || !outVal){
+    alert('Please fill in all required fields.');
+    return;
+  }
+
+  const nights = Math.round((new Date(outVal) - new Date(inVal)) / 86400000);
+  const total  = (bkRoomUSD - bkDiscount) * nights;
+
+  const text = `Booking Paddarai Surf Lodge%0A`
+    + `Name: ${encodeURIComponent(nama)}%0A`
+    + `Email: ${encodeURIComponent(email)}%0A`
+    + `Room: ${encodeURIComponent(bkRoomName)}%0A`
+    + `Guests: ${bkGuests}%0A`
+    + `Promo: ${encodeURIComponent(bkPromoName)}%0A`
+    + `Check In: ${inVal}%0A`
+    + `Check Out: ${outVal}%0A`
+    + `Duration: ${nights} night(s)%0A`
+    + `Currency: ${cur}%0A`
+    + `Total: ${encodeURIComponent(bkFmt(total))}%0A`
+    + `Message: ${encodeURIComponent(pesan)}`;
+
+  window.open('https://wa.me/6281374192584?text=' + text, '_blank');
+}
+</script>
+
+</body>
+</html>
