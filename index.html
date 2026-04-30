@@ -66,19 +66,25 @@ nav{
 
 .nav-dropdown{
   position:absolute;top:calc(100% + 6px);left:0;
-  background:rgba(10,10,10,0.92);border:1px solid rgba(255,255,255,0.1);border-radius:8px;
-  padding:6px;min-width:190px;box-shadow:0 8px 30px rgba(0,0,0,.35);
+  background:rgba(255,255,255,0.18);
+  border:1px solid rgba(255,255,255,0.30);
+  border-radius:8px;
+  padding:6px;min-width:190px;
+  box-shadow:0 8px 30px rgba(0,0,0,.18);
   opacity:0;transform:translateY(-6px) scale(.97);
-  pointer-events:none;transition:.18s ease;backdrop-filter:blur(16px);
+  pointer-events:none;transition:.18s ease;
+  backdrop-filter:blur(22px) saturate(1.8);
+  -webkit-backdrop-filter:blur(22px) saturate(1.8);
 }
 .nav-dropdown.open{opacity:1;transform:none;pointer-events:auto;}
 .nav-dd-item{
   display:block;width:100%;background:none;border:none;cursor:pointer;
-  color:rgba(255,255,255,0.7);font-family:'DM Sans';font-size:12px;
-  font-weight:400;letter-spacing:.5px;text-transform:uppercase;
+  color:rgba(255,255,255,0.92);font-family:'DM Sans';font-size:12px;
+  font-weight:500;letter-spacing:.5px;text-transform:uppercase;
   padding:9px 12px;border-radius:5px;text-align:left;transition:.12s;
+  text-shadow:0 1px 6px rgba(0,0,0,0.45);
 }
-.nav-dd-item:hover{background:rgba(255,255,255,0.08);color:#fff;}
+.nav-dd-item:hover{background:rgba(255,255,255,0.20);color:#fff;}
 
 .nav-book-btn{
   background:rgba(255,255,255,0.95);color:#0a0a0a;border:none;cursor:pointer;
