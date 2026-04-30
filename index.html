@@ -30,85 +30,87 @@ body{font-family:'DM Sans',sans-serif;color:var(--text-dark);background:var(--wh
 nav{
   position:fixed;top:0;width:100%;padding:0 5%;height:64px;
   display:flex;align-items:center;justify-content:space-between;
-  z-index:200;background:rgba(255,255,255,0.97);
-  border-bottom:1px solid var(--mid-gray);backdrop-filter:blur(12px);
+  z-index:200;background:rgba(0,0,0,0.55);
+  border-bottom:1px solid rgba(255,255,255,0.08);backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
 }
 .logo-wrap{display:flex;align-items:center;gap:10px;cursor:pointer;}
 .logo-wrap img{width:38px;}
-.logo-name{font-family:'Playfair Display';color:var(--black);font-size:13px;letter-spacing:2px;font-weight:400;}
+.logo-name{font-family:'Playfair Display';color:#fff;font-size:13px;letter-spacing:2px;font-weight:400;}
 
 .nav-items{display:flex;align-items:center;gap:2px;}
 .nav-item{position:relative;}
 .nav-btn{
   background:none;border:none;cursor:pointer;
-  color:var(--text-muted);font-family:'DM Sans';font-size:12px;
+  color:rgba(255,255,255,0.65);font-family:'DM Sans';font-size:12px;
   font-weight:500;letter-spacing:1px;text-transform:uppercase;
   padding:8px 12px;border-radius:4px;transition:.2s;
   display:flex;align-items:center;gap:5px;
 }
-.nav-btn:hover,.nav-btn.active{color:var(--black);background:var(--accent-light);}
-.nav-btn svg{width:10px;height:10px;transition:.2s;}
+.nav-btn:hover,.nav-btn.active{color:#fff;background:rgba(255,255,255,0.10);}
+.nav-btn svg{width:10px;height:10px;transition:.2s;stroke:rgba(255,255,255,0.65);}
+.nav-btn:hover svg,.nav-btn.active svg{stroke:#fff;}
 .nav-btn.open svg{transform:rotate(180deg);}
 
 .nav-dropdown{
   position:absolute;top:calc(100% + 6px);left:0;
-  background:#fff;border:1px solid var(--mid-gray);border-radius:8px;
-  padding:6px;min-width:190px;box-shadow:0 8px 30px rgba(0,0,0,.08);
+  background:rgba(10,10,10,0.92);border:1px solid rgba(255,255,255,0.1);border-radius:8px;
+  padding:6px;min-width:190px;box-shadow:0 8px 30px rgba(0,0,0,.35);
   opacity:0;transform:translateY(-6px) scale(.97);
-  pointer-events:none;transition:.18s ease;
+  pointer-events:none;transition:.18s ease;backdrop-filter:blur(16px);
 }
 .nav-dropdown.open{opacity:1;transform:none;pointer-events:auto;}
 .nav-dd-item{
   display:block;width:100%;background:none;border:none;cursor:pointer;
-  color:var(--text-dark);font-family:'DM Sans';font-size:12px;
+  color:rgba(255,255,255,0.7);font-family:'DM Sans';font-size:12px;
   font-weight:400;letter-spacing:.5px;text-transform:uppercase;
   padding:9px 12px;border-radius:5px;text-align:left;transition:.12s;
 }
-.nav-dd-item:hover{background:var(--accent-light);color:var(--black);}
+.nav-dd-item:hover{background:rgba(255,255,255,0.08);color:#fff;}
 
 .nav-book-btn{
-  background:var(--black);color:#fff;border:none;cursor:pointer;
+  background:#fff;color:#0a0a0a;border:none;cursor:pointer;
   padding:9px 20px;border-radius:4px;font-family:'DM Sans';
   font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;
   transition:.2s;margin-left:8px;
 }
-.nav-book-btn:hover{background:#333;}
+.nav-book-btn:hover{background:rgba(255,255,255,0.85);}
 
-.hamburger{display:none;background:none;border:none;cursor:pointer;color:var(--black);padding:4px;}
+.hamburger{display:none;background:none;border:none;cursor:pointer;color:#fff;padding:4px;}
 .hamburger svg{width:22px;height:22px;}
 
 /* Mobile menu */
 .mob-menu{
   position:fixed;top:64px;left:0;width:100%;
-  background:#fff;border-bottom:1px solid var(--mid-gray);
+  background:rgba(10,10,10,0.96);border-bottom:1px solid rgba(255,255,255,0.08);
   z-index:199;padding:16px 5%;
-  transform:translateY(-110%);transition:.3s ease;
+  transform:translateY(-110%);transition:.3s ease;backdrop-filter:blur(16px);
 }
 .mob-menu.open{transform:translateY(0);}
-.mob-section{border-bottom:1px solid var(--light-gray);}
+.mob-section{border-bottom:1px solid rgba(255,255,255,0.08);}
 .mob-section-btn{
   width:100%;background:none;border:none;cursor:pointer;
-  color:var(--text-dark);font-family:'DM Sans';font-size:13px;
+  color:rgba(255,255,255,0.8);font-family:'DM Sans';font-size:13px;
   font-weight:500;letter-spacing:1px;text-transform:uppercase;
   padding:14px 0;text-align:left;
   display:flex;justify-content:space-between;align-items:center;
 }
-.mob-section-btn svg{width:13px;height:13px;transition:.2s;flex-shrink:0;}
+.mob-section-btn svg{width:13px;height:13px;transition:.2s;flex-shrink:0;stroke:rgba(255,255,255,0.6);}
 .mob-section-btn.open svg{transform:rotate(180deg);}
 .mob-sub{max-height:0;overflow:hidden;transition:max-height .3s ease;}
 .mob-sub.open{max-height:300px;}
 .mob-sub-item,.mob-direct{
   display:block;width:100%;background:none;border:none;cursor:pointer;
-  color:var(--text-muted);font-family:'DM Sans';font-size:12px;
+  color:rgba(255,255,255,0.5);font-family:'DM Sans';font-size:12px;
   font-weight:400;letter-spacing:.8px;text-transform:uppercase;
   padding:10px 0;text-align:left;transition:.12s;
-  border-bottom:1px solid var(--light-gray);
+  border-bottom:1px solid rgba(255,255,255,0.06);
 }
-.mob-direct{color:var(--text-dark);font-weight:500;}
+.mob-direct{color:rgba(255,255,255,0.8);font-weight:500;}
 .mob-sub-item{padding-left:14px;}
-.mob-sub-item:hover,.mob-direct:hover{color:var(--black);}
+.mob-sub-item:hover,.mob-direct:hover{color:#fff;}
 .mob-book{
-  display:block;width:100%;background:var(--black);color:#fff;border:none;
+  display:block;width:100%;background:#fff;color:#0a0a0a;border:none;
   cursor:pointer;padding:14px;font-family:'DM Sans';font-size:12px;
   font-weight:600;letter-spacing:1.5px;text-transform:uppercase;
   border-radius:4px;margin-top:16px;text-align:center;
@@ -213,7 +215,6 @@ nav{
   display:grid;grid-template-columns:1fr 1fr;
   overflow:hidden;border-radius:2px;
 }
-/* ALL rooms go left-image, right-text — no alternating */
 .room-img-wrap{position:relative;overflow:hidden;min-height:clamp(280px,35vw,500px);}
 .room-img-wrap img{
   position:absolute;inset:0;width:100%;height:100%;
@@ -268,12 +269,10 @@ nav{
   display:grid;grid-template-columns:1.1fr 1fr;
   border:1px solid var(--mid-gray);overflow:hidden;background:#fff;
 }
-/* ALL wave spots: image left, info right — no alternating */
 .ws-img-col{position:relative;min-height:clamp(260px,30vw,400px);overflow:hidden;}
 .ws-img-col img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s ease;}
 .ws-item:hover .ws-img-col img{transform:scale(1.04);}
 .ws-info-col{padding:clamp(28px,4vw,52px);display:flex;flex-direction:column;justify-content:center;}
-.ws-num{font-size:56px;font-family:'Playfair Display';color:var(--light-gray);line-height:1;margin-bottom:-6px;font-weight:700;}
 .ws-info-col h3{font-family:'Playfair Display';font-size:clamp(22px,2.5vw,34px);font-weight:400;margin-bottom:14px;color:var(--black);}
 .ws-info-col p{color:#555;line-height:1.85;font-size:14px;margin-bottom:22px;}
 .ws-meta-row{display:flex;gap:20px;flex-wrap:wrap;}
@@ -469,7 +468,6 @@ tr:hover td{background:var(--light-gray);}
 .empty-state svg{width:40px;height:40px;stroke:var(--mid-gray);margin-bottom:12px;}
 .empty-state p{font-size:14px;}
 
-/* Room popularity chart */
 .bar-chart{display:flex;flex-direction:column;gap:10px;}
 .bar-row{display:flex;align-items:center;gap:12px;}
 .bar-label{font-size:12px;color:var(--text-muted);min-width:100px;}
@@ -487,7 +485,6 @@ footer a{color:rgba(255,255,255,.4);text-decoration:none;transition:.15s;}
 footer a:hover{color:#fff;}
 
 /* ═══ RESPONSIVE ═══ */
-/* Wide screens */
 @media(min-width:1400px){
   nav,.booking-wrap,.room-section,.ws-page-content,.gallery-page,.promo-page,
   .contact-page,.location-page,.about-strip,.section-intro,.admin-dash{
@@ -497,7 +494,6 @@ footer a:hover{color:#fff;}
   .booking-grid{max-width:1280px;}
 }
 
-/* Tablet */
 @media(max-width:1024px){
   .booking-grid{grid-template-columns:1fr 340px;}
   .room-card{grid-template-columns:1fr;}
@@ -511,7 +507,6 @@ footer a:hover{color:#fff;}
   .about-strip{grid-template-columns:1fr;gap:40px;}
 }
 
-/* Mobile large */
 @media(max-width:768px){
   nav{padding:0 16px;}
   .nav-items{display:none;}
@@ -527,7 +522,6 @@ footer a:hover{color:#fff;}
   .admin-stats{grid-template-columns:repeat(2,1fr);}
 }
 
-/* Mobile */
 @media(max-width:480px){
   .gallery-masonry{columns:1;}
   .room-specs{gap:8px;}
@@ -539,12 +533,9 @@ footer a:hover{color:#fff;}
   th,td{padding:10px 10px;}
 }
 
-/* Tiny mobile */
 @media(max-width:360px){
   .admin-stats{grid-template-columns:1fr;}
 }
-
-/* TV / Large screens handled by max-width clamps on font-sizes and padding above */
 
 @media print{
   nav,.mob-menu,.hamburger{display:none!important;}
@@ -827,7 +818,6 @@ footer a:hover{color:#fff;}
         <div class="ws-item">
           <div class="ws-img-col"><img src="Roxies.jpeg" alt="Roxi's"></div>
           <div class="ws-info-col">
-            <div class="ws-num">01</div>
             <h3>Roxi's</h3>
             <p>One of the closest waves to Paddarai Surf Lodge, featuring consistent, long, powerful reef breaks that can get even bigger during the rainy season. A reliable wave for a wide range of surfers.</p>
             <div class="ws-meta-row">
@@ -840,7 +830,6 @@ footer a:hover{color:#fff;}
         <div class="ws-item">
           <div class="ws-img-col"><img src="rags left.jpeg" alt="Rags Left"></div>
           <div class="ws-info-col">
-            <div class="ws-num">02</div>
             <h3>Rags Left</h3>
             <p>Powerful hollow right breaking over shallow reef. Favoured by experienced surfers for its fast, barreling sections on larger swells. One of the more demanding breaks in the region.</p>
             <div class="ws-meta-row">
@@ -853,7 +842,6 @@ footer a:hover{color:#fff;}
         <div class="ws-item">
           <div class="ws-img-col"><img src="rags right.jpeg" alt="Rags Right"></div>
           <div class="ws-info-col">
-            <div class="ws-num">03</div>
             <h3>Rags Right</h3>
             <p>Gentle, slow-breaking waves over a sandy bottom — a beautiful, uncrowded setting perfect for building confidence. One of the friendliest waves in the area.</p>
             <div class="ws-meta-row">
@@ -866,7 +854,6 @@ footer a:hover{color:#fff;}
         <div class="ws-item">
           <div class="ws-img-col"><img src="Thunders.jpeg" alt="Thunders"></div>
           <div class="ws-info-col">
-            <div class="ws-num">04</div>
             <h3>Thunders</h3>
             <p>A remote A-frame peak accessed only by boat, breaking both left and right into deep water. Rarely surfed and truly off the beaten path — a hidden gem of the Mentawai chain.</p>
             <div class="ws-meta-row">
@@ -879,7 +866,6 @@ footer a:hover{color:#fff;}
         <div class="ws-item">
           <div class="ws-img-col"><img src="rednuht.jpeg" alt="Rednuht"></div>
           <div class="ws-info-col">
-            <div class="ws-num">05</div>
             <h3>Rednuht</h3>
             <p>A classic right-point break that works best on the afternoon glass. Famous for its scenic backdrop and long, workable walls — ideal for cutbacks and linking smooth turns.</p>
             <div class="ws-meta-row">
@@ -892,7 +878,6 @@ footer a:hover{color:#fff;}
         <div class="ws-item">
           <div class="ws-img-col"><img src="greenbush.jpeg" alt="Greenbush"></div>
           <div class="ws-info-col">
-            <div class="ws-num">06</div>
             <h3>Greenbush</h3>
             <p>Crystal-clear water, turquoise reef, and mechanical lefts that peel for over 200 metres. One of the most photogenic and consistent breaks near the lodge.</p>
             <div class="ws-meta-row">
@@ -905,7 +890,6 @@ footer a:hover{color:#fff;}
         <div class="ws-item">
           <div class="ws-img-col"><img src="Macaronis.jpeg" alt="Macaronis"></div>
           <div class="ws-info-col">
-            <div class="ws-num">07</div>
             <h3>Macaronis</h3>
             <p>One of the most iconic right-handers in the Mentawai archipelago. This world-class reef break delivers long, perfectly shaped tubes — a bucket-list wave.</p>
             <div class="ws-meta-row">
@@ -1199,7 +1183,6 @@ footer a:hover{color:#fff;}
 <div class="page" id="page-admin">
   <div class="page-content" style="min-height:calc(100vh - 64px);">
 
-    <!-- Login screen -->
     <div class="admin-login" id="admin-login-screen">
       <div class="admin-login-card">
         <h2>Admin Portal</h2>
@@ -1217,7 +1200,6 @@ footer a:hover{color:#fff;}
       </div>
     </div>
 
-    <!-- Dashboard -->
     <div class="admin-dash" id="admin-dashboard">
       <div class="admin-topbar">
         <div>
@@ -1231,7 +1213,6 @@ footer a:hover{color:#fff;}
         </div>
       </div>
 
-      <!-- Stats cards -->
       <div class="admin-stats" id="admin-stats-row">
         <div class="stat-card"><div class="s-num" id="stat-total">0</div><div class="s-lbl">Total Bookings</div></div>
         <div class="stat-card"><div class="s-num" id="stat-new">0</div><div class="s-lbl">New / Pending</div></div>
@@ -1241,7 +1222,6 @@ footer a:hover{color:#fff;}
         <div class="stat-card"><div class="s-num" id="stat-nights">0</div><div class="s-lbl">Total Nights</div></div>
       </div>
 
-      <!-- Room popularity -->
       <div style="background:#fff;border:1px solid var(--mid-gray);border-radius:2px;padding:24px;margin-bottom:36px;">
         <div class="admin-section-title" style="margin-bottom:20px;">Room Popularity</div>
         <div class="bar-chart" id="room-bar-chart">
@@ -1251,7 +1231,6 @@ footer a:hover{color:#fff;}
         </div>
       </div>
 
-      <!-- Filter tabs -->
       <div class="admin-section-title">All Bookings</div>
       <div class="admin-actions" style="margin-bottom:16px;">
         <button class="admin-action-btn active" id="filter-all" onclick="adminFilter('all')">All</button>
@@ -1260,7 +1239,6 @@ footer a:hover{color:#fff;}
         <button class="admin-action-btn" id="filter-cancelled" onclick="adminFilter('cancelled')">Cancelled</button>
       </div>
 
-      <!-- Bookings table -->
       <div class="admin-table-wrap">
         <table>
           <thead>
@@ -1441,7 +1419,6 @@ function bkSendWA(){
   const nights=Math.round((new Date(outVal)-new Date(inVal))/86400000);
   const total=(bkRoomUSD-bkDiscount)*nights;
 
-  /* Save booking to admin data */
   adminSaveBooking({
     name:nama,email:email,room:bkRoomName,guests:bkGuests,
     checkIn:inVal,checkOut:outVal,nights,totalUSD:total,
@@ -1541,7 +1518,6 @@ function adminRender(){
   adminBookings=JSON.parse(localStorage.getItem('paddarai_bookings')||'[]');
   const filtered=adminCurrentFilter==='all'?adminBookings:adminBookings.filter(b=>b.status===adminCurrentFilter);
 
-  /* Stats */
   const confirmed=adminBookings.filter(b=>b.status==='confirmed');
   const newB=adminBookings.filter(b=>b.status==='new');
   document.getElementById('stat-total').textContent=adminBookings.length;
@@ -1551,7 +1527,6 @@ function adminRender(){
   document.getElementById('stat-guests').textContent=adminBookings.reduce((s,b)=>s+(b.guests||0),0);
   document.getElementById('stat-nights').textContent=adminBookings.reduce((s,b)=>s+(b.nights||0),0);
 
-  /* Bar chart */
   const r1=adminBookings.filter(b=>b.room&&b.room.includes('Room 1')).length;
   const r2=adminBookings.filter(b=>b.room&&b.room.includes('Room 2')).length;
   const r3=adminBookings.filter(b=>b.room&&b.room.includes('Room 3')).length;
@@ -1562,7 +1537,6 @@ function adminRender(){
   };
   setBar('bar-r1',r1);setBar('bar-r2',r2);setBar('bar-r3',r3);
 
-  /* Table */
   const tbody=document.getElementById('bookings-tbody');
   const emptyState=document.getElementById('empty-state');
   tbody.innerHTML='';
@@ -1605,7 +1579,7 @@ bkCheckPromoEligibility();
 updateGuestUI();
 updateNavActive('home');
 
-/* Hidden admin access: click logo 5 times */
+/* Hidden admin: logo 5x */
 let logoClicks=0,logoTimer=null;
 document.querySelector('.logo-wrap').addEventListener('click',function(e){
   logoClicks++;
