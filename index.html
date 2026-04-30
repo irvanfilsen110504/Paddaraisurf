@@ -39,7 +39,6 @@ nav{
 }
 .logo-wrap{display:flex;align-items:center;gap:10px;cursor:pointer;}
 .logo-wrap img{width:38px;}
-/* Logo name: always visible di semua ukuran */
 .logo-name{
   font-family:'Playfair Display';
   color:#fff;
@@ -96,38 +95,44 @@ nav{
 }
 .hamburger svg{width:22px;height:22px;}
 
-/* Mobile menu */
+/* ═══ MOBILE MENU — WHITE GLASSMORPHISM ═══ */
 .mob-menu{
   position:fixed;top:64px;left:0;width:100%;
-  background:rgba(10,10,10,0.96);border-bottom:1px solid rgba(255,255,255,0.08);
+  background:rgba(255,255,255,0.18);
+  border-bottom:1px solid rgba(255,255,255,0.30);
   z-index:199;padding:16px 5%;
-  transform:translateY(-110%);transition:.3s ease;backdrop-filter:blur(16px);
+  transform:translateY(-110%);transition:.3s ease;
+  backdrop-filter:blur(22px) saturate(1.8);
+  -webkit-backdrop-filter:blur(22px) saturate(1.8);
+  box-shadow:0 8px 32px rgba(0,0,0,0.12);
 }
 .mob-menu.open{transform:translateY(0);}
-.mob-section{border-bottom:1px solid rgba(255,255,255,0.08);}
+.mob-section{border-bottom:1px solid rgba(255,255,255,0.15);}
 .mob-section-btn{
   width:100%;background:none;border:none;cursor:pointer;
-  color:rgba(255,255,255,0.8);font-family:'DM Sans';font-size:13px;
+  color:rgba(255,255,255,0.92);font-family:'DM Sans';font-size:13px;
   font-weight:500;letter-spacing:1px;text-transform:uppercase;
   padding:14px 0;text-align:left;
   display:flex;justify-content:space-between;align-items:center;
+  text-shadow:0 1px 8px rgba(0,0,0,0.45);
 }
-.mob-section-btn svg{width:13px;height:13px;transition:.2s;flex-shrink:0;stroke:rgba(255,255,255,0.6);}
+.mob-section-btn svg{width:13px;height:13px;transition:.2s;flex-shrink:0;stroke:rgba(255,255,255,0.7);}
 .mob-section-btn.open svg{transform:rotate(180deg);}
 .mob-sub{max-height:0;overflow:hidden;transition:max-height .3s ease;}
 .mob-sub.open{max-height:300px;}
 .mob-sub-item,.mob-direct{
   display:block;width:100%;background:none;border:none;cursor:pointer;
-  color:rgba(255,255,255,0.5);font-family:'DM Sans';font-size:12px;
+  color:rgba(255,255,255,0.75);font-family:'DM Sans';font-size:12px;
   font-weight:400;letter-spacing:.8px;text-transform:uppercase;
   padding:10px 0;text-align:left;transition:.12s;
-  border-bottom:1px solid rgba(255,255,255,0.06);
+  border-bottom:1px solid rgba(255,255,255,0.10);
+  text-shadow:0 1px 6px rgba(0,0,0,0.35);
 }
-.mob-direct{color:rgba(255,255,255,0.8);font-weight:500;}
+.mob-direct{color:rgba(255,255,255,0.92);font-weight:500;}
 .mob-sub-item{padding-left:14px;}
 .mob-sub-item:hover,.mob-direct:hover{color:#fff;}
 .mob-book{
-  display:block;width:100%;background:#fff;color:#0a0a0a;border:none;
+  display:block;width:100%;background:rgba(255,255,255,0.95);color:#0a0a0a;border:none;
   cursor:pointer;padding:14px;font-family:'DM Sans';font-size:12px;
   font-weight:600;letter-spacing:1.5px;text-transform:uppercase;
   border-radius:4px;margin-top:16px;text-align:center;
@@ -494,13 +499,19 @@ tr:hover td{background:var(--light-gray);}
 .bar-fill{height:100%;background:var(--black);transition:width .6s ease;display:flex;align-items:center;padding-left:8px;}
 .bar-fill span{font-size:11px;color:#fff;font-weight:600;}
 
-/* ═══ FOOTER ═══ */
+/* ═══ FOOTER — WHITE GLASSMORPHISM ═══ */
 footer{
-  background:var(--black);color:rgba(255,255,255,.4);
+  background:rgba(255,255,255,0.18);
+  border-top:1px solid rgba(255,255,255,0.30);
+  backdrop-filter:blur(22px) saturate(1.8);
+  -webkit-backdrop-filter:blur(22px) saturate(1.8);
+  box-shadow:0 -2px 32px rgba(0,0,0,0.08);
+  color:rgba(255,255,255,0.80);
   padding:28px 5%;display:flex;justify-content:space-between;
   align-items:center;font-size:12px;letter-spacing:.3px;flex-wrap:wrap;gap:10px;
+  text-shadow:0 1px 8px rgba(0,0,0,0.40);
 }
-footer a{color:rgba(255,255,255,.4);text-decoration:none;transition:.15s;}
+footer a{color:rgba(255,255,255,0.65);text-decoration:none;transition:.15s;text-shadow:0 1px 6px rgba(0,0,0,0.35);}
 footer a:hover{color:#fff;}
 
 /* ═══ RESPONSIVE ═══ */
@@ -531,7 +542,6 @@ footer a:hover{color:#fff;}
   nav{padding:0 16px;}
   .nav-items{display:none;}
   .hamburger{display:block;}
-  /* Logo name tetap tampil di mobile */
   .logo-name{font-size:11px;letter-spacing:1.5px;}
   .logo-wrap img{width:34px;}
   .gallery-masonry{columns:2;}
@@ -578,7 +588,6 @@ footer a:hover{color:#fff;}
   .admin-stats{grid-template-columns:1fr 1fr;}
   table{font-size:12px;}
   th,td{padding:10px 10px;}
-  /* PERBAIKAN: logo-name tetap tampil, ukuran lebih kecil */
   .logo-name{font-size:10px;letter-spacing:1px;}
   .logo-wrap img{width:30px;}
   .room-body{padding:20px;}
@@ -613,7 +622,6 @@ footer a:hover{color:#fff;}
   .room-body{padding:16px;}
   .ws-info-col{padding:16px;}
   .booking-summary{padding:20px;}
-  /* Logo name tetap tampil meski kecil */
   .logo-name{font-size:9px;letter-spacing:0.5px;}
   .logo-wrap img{width:28px;}
 }
@@ -622,7 +630,6 @@ footer a:hover{color:#fff;}
   .hero-tagline{font-size:22px;}
   .about-strip h2{font-size:24px;}
   .page-hero h1{font-size:22px;}
-  /* TIDAK menyembunyikan logo-name lagi */
   .logo-name{font-size:8px;letter-spacing:0px;}
   .nav-book-btn{display:none;}
 }
