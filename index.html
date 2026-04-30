@@ -499,20 +499,20 @@ tr:hover td{background:var(--light-gray);}
 .bar-fill{height:100%;background:var(--black);transition:width .6s ease;display:flex;align-items:center;padding-left:8px;}
 .bar-fill span{font-size:11px;color:#fff;font-weight:600;}
 
-/* ═══ FOOTER — WHITE GLASSMORPHISM ═══ */
+/* ═══ FOOTER — WHITE GLASSMORPHISM (DARK TEXT) ═══ */
 footer{
-  background:rgba(255,255,255,0.18);
-  border-top:1px solid rgba(255,255,255,0.30);
+  background:rgba(255,255,255,0.55);
+  border-top:1px solid rgba(255,255,255,0.50);
   backdrop-filter:blur(22px) saturate(1.8);
   -webkit-backdrop-filter:blur(22px) saturate(1.8);
-  box-shadow:0 -2px 32px rgba(0,0,0,0.08);
-  color:rgba(255,255,255,0.80);
-  padding:28px 5%;display:flex;justify-content:space-between;
+  box-shadow:0 -2px 32px rgba(0,0,0,0.06);
+  color:rgba(0,0,0,0.65);
+  padding:28px 5%;
+  display:flex;justify-content:space-between;
   align-items:center;font-size:12px;letter-spacing:.3px;flex-wrap:wrap;gap:10px;
-  text-shadow:0 1px 8px rgba(0,0,0,0.40);
 }
-footer a{color:rgba(255,255,255,0.65);text-decoration:none;transition:.15s;text-shadow:0 1px 6px rgba(0,0,0,0.35);}
-footer a:hover{color:#fff;}
+footer a{color:rgba(0,0,0,0.45);text-decoration:none;transition:.15s;}
+footer a:hover{color:#000;}
 
 /* ═══ RESPONSIVE ═══ */
 
@@ -921,7 +921,7 @@ footer a:hover{color:#fff;}
           <div class="fac-grid">
             <div class="fac-item"><div class="fac-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg></div><div><div class="fac-name">Private Room</div><div class="fac-detail">Your own space</div></div></div>
             <div class="fac-item"><div class="fac-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 9v11a2 2 0 01-2 2H6a2 2 0 01-2-2V9"/></svg></div><div><div class="fac-name">Ensuite Bathroom</div><div class="fac-detail">Hot & cold shower</div></div></div>
-            <div class="fac-item"><div class="fac-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 010 14.14M4.93 4.93a10 10 0 000 14.14"/></svg></div><div><div class="fac-name">WiFi Access</div><div class="fac-detail">Lodge-wide</div></div></div>
+            <div class="fac-item"><div class="fac-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="1.5"/><path d="M19.07 4.93a10 10 0 010 14.14M4.93 4.93a10 10 0 000 14.14"/></svg></div><div><div class="fac-name">WiFi Access</div><div class="fac-detail">Lodge-wide</div></div></div>
             <div class="fac-item"><div class="fac-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div><div class="fac-name">Garden View</div><div class="fac-detail">Lush tropical outlook</div></div></div>
             <div class="fac-item"><div class="fac-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 8h1a4 4 0 010 8h-1M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/></svg></div><div><div class="fac-name">Breakfast Included</div><div class="fac-detail">Daily tropical breakfast</div></div></div>
             <div class="fac-item"><div class="fac-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg></div><div><div class="fac-name">Quiet Garden Setting</div><div class="fac-detail">Peaceful atmosphere</div></div></div>
@@ -1385,9 +1385,9 @@ footer a:hover{color:#fff;}
         </div>
       </div>
 
-      <footer>
+      <footer style="margin-top:20px;">
         <span>© 2026 Paddarai Surf Lodge — Admin Portal</span>
-        <span style="font-size:11px;">Data stored locally in browser</span>
+        <span style="font-size:11px;color:rgba(0,0,0,0.35);">Data stored locally in browser</span>
       </footer>
     </div>
   </div>
