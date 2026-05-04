@@ -41,11 +41,10 @@ nav{
 .logo-wrap img{width:38px;}
 .logo-name{
   font-family:'Playfair Display';
-  color:#fff;
+  color:#111;
   font-size:13px;
   letter-spacing:2px;
   font-weight:400;
-  text-shadow:0 1px 10px rgba(0,0,0,0.55);
   white-space:nowrap;
 }
 
@@ -53,15 +52,14 @@ nav{
 .nav-item{position:relative;}
 .nav-btn{
   background:none;border:none;cursor:pointer;
-  color:rgba(255,255,255,0.92);font-family:'DM Sans';font-size:12px;
+  color:rgba(0,0,0,0.82);font-family:'DM Sans';font-size:12px;
   font-weight:600;letter-spacing:1px;text-transform:uppercase;
   padding:8px 12px;border-radius:4px;transition:.2s;
   display:flex;align-items:center;gap:5px;
-  text-shadow:0 1px 8px rgba(0,0,0,0.45);
 }
-.nav-btn:hover,.nav-btn.active{color:#fff;background:rgba(255,255,255,0.20);}
-.nav-btn svg{width:10px;height:10px;transition:.2s;stroke:rgba(255,255,255,0.92);}
-.nav-btn:hover svg,.nav-btn.active svg{stroke:#fff;}
+.nav-btn:hover,.nav-btn.active{color:#000;background:rgba(0,0,0,0.08);}
+.nav-btn svg{width:10px;height:10px;transition:.2s;stroke:rgba(0,0,0,0.82);}
+.nav-btn:hover svg,.nav-btn.active svg{stroke:#000;}
 .nav-btn.open svg{transform:rotate(180deg);}
 
 .nav-dropdown{
@@ -79,12 +77,11 @@ nav{
 .nav-dropdown.open{opacity:1;transform:none;pointer-events:auto;}
 .nav-dd-item{
   display:block;width:100%;background:none;border:none;cursor:pointer;
-  color:rgba(255,255,255,0.92);font-family:'DM Sans';font-size:12px;
+  color:rgba(0,0,0,0.82);font-family:'DM Sans';font-size:12px;
   font-weight:500;letter-spacing:.5px;text-transform:uppercase;
   padding:9px 12px;border-radius:5px;text-align:left;transition:.12s;
-  text-shadow:0 1px 6px rgba(0,0,0,0.45);
 }
-.nav-dd-item:hover{background:rgba(255,255,255,0.20);color:#fff;}
+.nav-dd-item:hover{background:rgba(0,0,0,0.08);color:#000;}
 
 .nav-book-btn{
   background:rgba(255,255,255,0.95);color:#0a0a0a;border:none;cursor:pointer;
@@ -96,8 +93,7 @@ nav{
 .nav-book-btn:hover{background:#fff;transform:translateY(-1px);}
 
 .hamburger{
-  display:none;background:none;border:none;cursor:pointer;color:#fff;padding:4px;
-  filter:drop-shadow(0 1px 5px rgba(0,0,0,0.5));
+  display:none;background:none;border:none;cursor:pointer;color:#111;padding:4px;
 }
 .hamburger svg{width:22px;height:22px;}
 
@@ -113,32 +109,30 @@ nav{
   box-shadow:0 8px 32px rgba(0,0,0,0.12);
 }
 .mob-menu.open{transform:translateY(0);}
-.mob-section{border-bottom:1px solid rgba(255,255,255,0.15);}
+.mob-section{border-bottom:1px solid rgba(0,0,0,0.10);}
 .mob-section-btn{
   width:100%;background:none;border:none;cursor:pointer;
-  color:rgba(255,255,255,0.92);font-family:'DM Sans';font-size:13px;
+  color:rgba(0,0,0,0.82);font-family:'DM Sans';font-size:13px;
   font-weight:500;letter-spacing:1px;text-transform:uppercase;
   padding:14px 0;text-align:left;
   display:flex;justify-content:space-between;align-items:center;
-  text-shadow:0 1px 8px rgba(0,0,0,0.45);
 }
-.mob-section-btn svg{width:13px;height:13px;transition:.2s;flex-shrink:0;stroke:rgba(255,255,255,0.7);}
+.mob-section-btn svg{width:13px;height:13px;transition:.2s;flex-shrink:0;stroke:rgba(0,0,0,0.6);}
 .mob-section-btn.open svg{transform:rotate(180deg);}
 .mob-sub{max-height:0;overflow:hidden;transition:max-height .3s ease;}
 .mob-sub.open{max-height:300px;}
 .mob-sub-item,.mob-direct{
   display:block;width:100%;background:none;border:none;cursor:pointer;
-  color:rgba(255,255,255,0.75);font-family:'DM Sans';font-size:12px;
+  color:rgba(0,0,0,0.70);font-family:'DM Sans';font-size:12px;
   font-weight:400;letter-spacing:.8px;text-transform:uppercase;
   padding:10px 0;text-align:left;transition:.12s;
-  border-bottom:1px solid rgba(255,255,255,0.10);
-  text-shadow:0 1px 6px rgba(0,0,0,0.35);
+  border-bottom:1px solid rgba(0,0,0,0.08);
 }
-.mob-direct{color:rgba(255,255,255,0.92);font-weight:500;}
+.mob-direct{color:rgba(0,0,0,0.82);font-weight:500;}
 .mob-sub-item{padding-left:14px;}
-.mob-sub-item:hover,.mob-direct:hover{color:#fff;}
+.mob-sub-item:hover,.mob-direct:hover{color:#000;}
 .mob-book{
-  display:block;width:100%;background:rgba(255,255,255,0.95);color:#0a0a0a;border:none;
+  display:block;width:100%;background:#111;color:#fff;border:none;
   cursor:pointer;padding:14px;font-family:'DM Sans';font-size:12px;
   font-weight:600;letter-spacing:1.5px;text-transform:uppercase;
   border-radius:4px;margin-top:16px;text-align:center;
