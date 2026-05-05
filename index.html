@@ -26,22 +26,22 @@ body{font-family:'DM Sans',sans-serif;color:var(--text-dark);background:var(--wh
 .page.active{display:block;}
 @keyframes pgIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
 
-/* ═══ NAV — WHITE GLASSMORPHISM ═══ */
+/* ═══ NAV — BLACK GLASSMORPHISM ═══ */
 nav{
   position:fixed;top:0;width:100%;padding:0 5%;height:64px;
   display:flex;align-items:center;justify-content:space-between;
   z-index:200;
-  background:rgba(255,255,255,0.18);
-  border-bottom:1px solid rgba(255,255,255,0.30);
+  background:rgba(0,0,0,0.55);
+  border-bottom:1px solid rgba(255,255,255,0.10);
   backdrop-filter:blur(22px) saturate(1.8);
   -webkit-backdrop-filter:blur(22px) saturate(1.8);
-  box-shadow:0 2px 32px rgba(0,0,0,0.12);
+  box-shadow:0 2px 32px rgba(0,0,0,0.35);
 }
 .logo-wrap{display:flex;align-items:center;gap:10px;cursor:pointer;}
 .logo-wrap img{width:38px;}
 .logo-name{
   font-family:'Playfair Display';
-  color:#111;
+  color:rgba(255,255,255,0.92);
   font-size:13px;
   letter-spacing:2px;
   font-weight:400;
@@ -52,23 +52,23 @@ nav{
 .nav-item{position:relative;}
 .nav-btn{
   background:none;border:none;cursor:pointer;
-  color:rgba(0,0,0,0.82);font-family:'DM Sans';font-size:12px;
+  color:rgba(255,255,255,0.82);font-family:'DM Sans';font-size:12px;
   font-weight:600;letter-spacing:1px;text-transform:uppercase;
   padding:8px 12px;border-radius:4px;transition:.2s;
   display:flex;align-items:center;gap:5px;
 }
-.nav-btn:hover,.nav-btn.active{color:#000;background:rgba(0,0,0,0.08);}
-.nav-btn svg{width:10px;height:10px;transition:.2s;stroke:rgba(0,0,0,0.82);}
-.nav-btn:hover svg,.nav-btn.active svg{stroke:#000;}
+.nav-btn:hover,.nav-btn.active{color:#fff;background:rgba(255,255,255,0.12);}
+.nav-btn svg{width:10px;height:10px;transition:.2s;stroke:rgba(255,255,255,0.82);}
+.nav-btn:hover svg,.nav-btn.active svg{stroke:#fff;}
 .nav-btn.open svg{transform:rotate(180deg);}
 
 .nav-dropdown{
   position:absolute;top:calc(100% + 6px);left:0;
-  background:rgba(255,255,255,0.18);
-  border:1px solid rgba(255,255,255,0.30);
+  background:rgba(10,10,10,0.80);
+  border:1px solid rgba(255,255,255,0.12);
   border-radius:8px;
   padding:6px;min-width:190px;
-  box-shadow:0 8px 30px rgba(0,0,0,.18);
+  box-shadow:0 8px 30px rgba(0,0,0,.40);
   opacity:0;transform:translateY(-6px) scale(.97);
   pointer-events:none;transition:.18s ease;
   backdrop-filter:blur(22px) saturate(1.8);
@@ -77,62 +77,63 @@ nav{
 .nav-dropdown.open{opacity:1;transform:none;pointer-events:auto;}
 .nav-dd-item{
   display:block;width:100%;background:none;border:none;cursor:pointer;
-  color:rgba(0,0,0,0.82);font-family:'DM Sans';font-size:12px;
+  color:rgba(255,255,255,0.82);font-family:'DM Sans';font-size:12px;
   font-weight:500;letter-spacing:.5px;text-transform:uppercase;
   padding:9px 12px;border-radius:5px;text-align:left;transition:.12s;
 }
-.nav-dd-item:hover{background:rgba(0,0,0,0.08);color:#000;}
+.nav-dd-item:hover{background:rgba(255,255,255,0.10);color:#fff;}
 
 .nav-book-btn{
-  background:rgba(255,255,255,0.95);color:#0a0a0a;border:none;cursor:pointer;
+  background:rgba(255,255,255,0.15);color:#fff;border:1px solid rgba(255,255,255,0.30);cursor:pointer;
   padding:9px 20px;border-radius:4px;font-family:'DM Sans';
   font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
   transition:.2s;margin-left:8px;
-  box-shadow:0 2px 12px rgba(0,0,0,0.18);
+  box-shadow:0 2px 12px rgba(0,0,0,0.25);
 }
-.nav-book-btn:hover{background:#fff;transform:translateY(-1px);}
+.nav-book-btn:hover{background:rgba(255,255,255,0.28);transform:translateY(-1px);}
 
 .hamburger{
-  display:none;background:none;border:none;cursor:pointer;color:#111;padding:4px;
+  display:none;background:none;border:none;cursor:pointer;color:rgba(255,255,255,0.9);padding:4px;
 }
 .hamburger svg{width:22px;height:22px;}
 
-/* ═══ MOBILE MENU — WHITE GLASSMORPHISM ═══ */
+/* ═══ MOBILE MENU — BLACK GLASSMORPHISM ═══ */
 .mob-menu{
   position:fixed;top:64px;left:0;width:100%;
-  background:rgba(255,255,255,0.18);
-  border-bottom:1px solid rgba(255,255,255,0.30);
+  background:rgba(0,0,0,0.80);
+  border-bottom:1px solid rgba(255,255,255,0.10);
   z-index:199;padding:16px 5%;
   transform:translateY(-110%);transition:.3s ease;
   backdrop-filter:blur(22px) saturate(1.8);
   -webkit-backdrop-filter:blur(22px) saturate(1.8);
-  box-shadow:0 8px 32px rgba(0,0,0,0.12);
+  box-shadow:0 8px 32px rgba(0,0,0,0.35);
 }
 .mob-menu.open{transform:translateY(0);}
-.mob-section{border-bottom:1px solid rgba(0,0,0,0.10);}
+.mob-section{border-bottom:1px solid rgba(255,255,255,0.08);}
 .mob-section-btn{
   width:100%;background:none;border:none;cursor:pointer;
-  color:rgba(0,0,0,0.82);font-family:'DM Sans';font-size:13px;
+  color:rgba(255,255,255,0.85);font-family:'DM Sans';font-size:13px;
   font-weight:500;letter-spacing:1px;text-transform:uppercase;
   padding:14px 0;text-align:left;
   display:flex;justify-content:space-between;align-items:center;
 }
-.mob-section-btn svg{width:13px;height:13px;transition:.2s;flex-shrink:0;stroke:rgba(0,0,0,0.6);}
+.mob-section-btn svg{width:13px;height:13px;transition:.2s;flex-shrink:0;stroke:rgba(255,255,255,0.5);}
 .mob-section-btn.open svg{transform:rotate(180deg);}
 .mob-sub{max-height:0;overflow:hidden;transition:max-height .3s ease;}
 .mob-sub.open{max-height:300px;}
 .mob-sub-item,.mob-direct{
   display:block;width:100%;background:none;border:none;cursor:pointer;
-  color:rgba(0,0,0,0.70);font-family:'DM Sans';font-size:12px;
+  color:rgba(255,255,255,0.60);font-family:'DM Sans';font-size:12px;
   font-weight:400;letter-spacing:.8px;text-transform:uppercase;
   padding:10px 0;text-align:left;transition:.12s;
-  border-bottom:1px solid rgba(0,0,0,0.08);
+  border-bottom:1px solid rgba(255,255,255,0.06);
 }
-.mob-direct{color:rgba(0,0,0,0.82);font-weight:500;}
+.mob-direct{color:rgba(255,255,255,0.85);font-weight:500;}
 .mob-sub-item{padding-left:14px;}
-.mob-sub-item:hover,.mob-direct:hover{color:#000;}
+.mob-sub-item:hover,.mob-direct:hover{color:#fff;}
 .mob-book{
-  display:block;width:100%;background:#111;color:#fff;border:none;
+  display:block;width:100%;background:rgba(255,255,255,0.15);color:#fff;
+  border:1px solid rgba(255,255,255,0.25);
   cursor:pointer;padding:14px;font-family:'DM Sans';font-size:12px;
   font-weight:600;letter-spacing:1.5px;text-transform:uppercase;
   border-radius:4px;margin-top:16px;text-align:center;
@@ -499,7 +500,7 @@ tr:hover td{background:var(--light-gray);}
 .bar-fill{height:100%;background:var(--black);transition:width .6s ease;display:flex;align-items:center;padding-left:8px;}
 .bar-fill span{font-size:11px;color:#fff;font-weight:600;}
 
-/* ═══ FOOTER — WHITE GLASSMORPHISM (DARK TEXT) ═══ */
+/* ═══ FOOTER ═══ */
 footer{
   background:rgba(255,255,255,0.55);
   border-top:1px solid rgba(255,255,255,0.50);
@@ -1157,7 +1158,7 @@ footer a:hover{color:#000;}
         </a>
       </div>
       <div class="contact-right">
-        <iframe src="https://www.google.com/maps?q=-2.954758,100.193892&output=embed" allowfullscreen loading="lazy"></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3989.3!2d100.193892!3d-2.954758!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMsKwNTcnMTcuMiJTIDEwMMKwMTEnMzguMCJF!5e0!3m2!1sen!2sid!4v1700000000000!5m2!1sen!2sid" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </div>
     <footer>
@@ -1180,7 +1181,7 @@ footer a:hover{color:#000;}
     <div class="location-page">
       <h2>Malakopa, South Pagai Island</h2>
       <p class="sub">Mentawai Islands, West Sumatra, Indonesia</p>
-      <iframe src="https://www.google.com/maps?q=Paddarai Surf Lodge" allowfullscreen loading="lazy"></iframe>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3989.3!2d100.193892!3d-2.954758!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMsKwNTcnMTcuMiJTIDEwMMKwMTEnMzguMCJF!5e0!3m2!1sen!2sid!4v1700000000000!5m2!1sen!2sid" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
     <footer>
       <span>© 2026 Paddarai Surf Lodge — Mentawai, Indonesia</span>
