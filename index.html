@@ -18,7 +18,6 @@
   --black:#0a0a0a;
   --accent:#1a1a1a;
   --accent-light:rgba(0,0,0,0.06);
-  /* fluid spacing */
   --space-xs:clamp(4px,1vw,8px);
   --space-sm:clamp(8px,2vw,16px);
   --space-md:clamp(16px,3vw,24px);
@@ -28,12 +27,10 @@
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
 body{font-family:'DM Sans',sans-serif;color:var(--text-dark);background:var(--white);overflow-x:hidden;min-width:0;}
 
-/* ═══ PAGES ═══ */
 .page{display:none;min-height:100vh;animation:pgIn .4s ease forwards;}
 .page.active{display:block;}
 @keyframes pgIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
 
-/* ═══ NAV ═══ */
 nav{
   position:fixed;top:0;width:100%;
   padding:0 max(4%, env(safe-area-inset-left));
@@ -112,7 +109,6 @@ nav{
 }
 .hamburger svg{width:clamp(18px,5vw,22px);height:clamp(18px,5vw,22px);}
 
-/* ═══ MOBILE MENU ═══ */
 .mob-menu{
   position:fixed;
   top:clamp(52px,8vw,64px);
@@ -144,7 +140,7 @@ nav{
 .mob-section-btn svg{width:13px;height:13px;transition:.2s;flex-shrink:0;stroke:rgba(255,255,255,0.5);}
 .mob-section-btn.open svg{transform:rotate(180deg);}
 .mob-sub{max-height:0;overflow:hidden;transition:max-height .3s ease;}
-.mob-sub.open{max-height:300px;}
+.mob-sub.open{max-height:400px;}
 .mob-sub-item,.mob-direct{
   display:block;width:100%;background:none;border:none;cursor:pointer;
   color:rgba(255,255,255,.60);font-family:'DM Sans';
@@ -168,10 +164,8 @@ nav{
   min-height:48px;
 }
 
-/* ═══ PAGE CONTENT ═══ */
 .page-content{padding-top:clamp(52px,8vw,64px);}
 
-/* ═══ HOME HERO ═══ */
 #page-home .hero{
   height:100svh;min-height:300px;
   background:linear-gradient(rgba(0,0,0,.40),rgba(0,0,0,.40)),
@@ -231,7 +225,6 @@ nav{
 .scroll-hint svg{width:clamp(12px,3vw,16px);height:clamp(12px,3vw,16px);}
 @keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}55%{transform:translateX(-50%) translateY(8px)}}
 
-/* ═══ ABOUT STRIP ═══ */
 .about-strip{
   background:#fff;color:var(--text-dark);
   padding:var(--space-xl) max(4%, env(safe-area-inset-left));
@@ -251,7 +244,6 @@ nav{
 .about-img-grid img:first-child{grid-column:1/-1;height:clamp(150px,25vw,280px);}
 .about-img-grid img:not(:first-child){height:clamp(90px,15vw,180px);}
 
-/* ═══ PAGE HERO ═══ */
 .page-hero{
   height:clamp(180px,40vw,480px);
   display:flex;flex-direction:column;align-items:center;justify-content:center;
@@ -273,7 +265,6 @@ nav{
 }
 .page-hero .divider{width:36px;height:1px;background:#fff;margin:clamp(10px,2vw,18px) auto 0;opacity:.4;}
 
-/* ═══ SECTION INTRO ═══ */
 .section-intro{
   padding:var(--space-lg) max(4%, env(safe-area-inset-left));
   text-align:center;
@@ -282,7 +273,6 @@ nav{
 .section-intro h2{font-family:'Playfair Display';font-size:clamp(20px,4vw,40px);font-weight:400;margin-bottom:clamp(8px,1.5vw,14px);}
 .section-intro p{max-width:580px;margin:0 auto;color:var(--text-muted);line-height:1.9;font-size:clamp(13px,2vw,15px);}
 
-/* ═══ ROOM SECTION ═══ */
 .room-section{padding:var(--space-lg) max(4%, env(safe-area-inset-left));background:var(--off-white);}
 .room-card{
   background:#fff;border:1px solid var(--mid-gray);margin-bottom:clamp(28px,5vw,48px);
@@ -341,6 +331,142 @@ nav{
 }
 .btn-book:hover{background:#333;}
 
+/* ═══ OUR BOAT PAGE ═══ */
+.boat-page{padding:var(--space-xl) max(4%, env(safe-area-inset-left));background:#fff;}
+.boat-intro{max-width:680px;margin:0 auto clamp(36px,6vw,72px);text-align:center;}
+.boat-intro h2{font-family:'Playfair Display';font-size:clamp(22px,4.5vw,44px);font-weight:400;margin-bottom:clamp(12px,2vw,18px);color:var(--black);}
+.boat-intro p{color:var(--text-muted);line-height:1.9;font-size:clamp(13px,2vw,15px);}
+
+/* Main boat feature card */
+.boat-feature{
+  display:grid;grid-template-columns:1.15fr 1fr;
+  border:1px solid var(--mid-gray);overflow:hidden;
+  margin-bottom:clamp(20px,4vw,40px);background:#fff;
+}
+.boat-feature-img{position:relative;overflow:hidden;min-height:clamp(220px,40vw,560px);}
+.boat-feature-img img{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;transition:transform .8s ease;
+}
+.boat-feature:hover .boat-feature-img img{transform:scale(1.04);}
+.boat-feature-badge{
+  position:absolute;top:14px;left:14px;z-index:2;
+  background:var(--black);color:#fff;
+  font-size:clamp(8px,2vw,10px);letter-spacing:2px;text-transform:uppercase;
+  padding:5px 12px;font-weight:600;
+}
+.boat-feature-body{
+  padding:clamp(20px,4vw,56px);
+  display:flex;flex-direction:column;justify-content:center;
+  background:#fff;
+}
+.boat-feature-eyebrow{
+  font-size:clamp(9px,2vw,10px);letter-spacing:3px;text-transform:uppercase;
+  color:var(--text-muted);margin-bottom:10px;font-weight:600;
+}
+.boat-feature-body h3{
+  font-family:'Playfair Display';font-size:clamp(20px,3.5vw,38px);
+  font-weight:400;margin-bottom:clamp(10px,2vw,16px);color:var(--black);line-height:1.15;
+}
+.boat-feature-body p{
+  color:#555;line-height:1.9;font-size:clamp(12px,2vw,14px);
+  margin-bottom:clamp(14px,2.5vw,22px);font-weight:300;
+}
+.boat-feature-body p+p{margin-top:clamp(-6px,0vw,0px);}
+
+/* Boat specs strip */
+.boat-specs{
+  display:flex;gap:0;margin:clamp(16px,2.5vw,26px) 0;
+  border-top:1px solid var(--mid-gray);border-bottom:1px solid var(--mid-gray);
+}
+.boat-spec{
+  flex:1;text-align:center;
+  padding:clamp(12px,2.5vw,18px) clamp(8px,1.5vw,12px);
+  border-right:1px solid var(--mid-gray);
+}
+.boat-spec:last-child{border-right:none;}
+.boat-spec .bs-val{
+  font-family:'Playfair Display';font-size:clamp(16px,3vw,22px);
+  color:var(--black);font-weight:500;display:block;margin-bottom:3px;
+}
+.boat-spec .bs-key{
+  font-size:clamp(8px,1.8vw,10px);letter-spacing:1.5px;
+  text-transform:uppercase;color:var(--text-muted);
+}
+
+/* Boat features list */
+.boat-features-list{display:flex;flex-direction:column;gap:0;margin-bottom:clamp(20px,3.5vw,32px);}
+.boat-feat-item{
+  display:flex;align-items:flex-start;gap:10px;
+  padding:clamp(8px,1.8vw,11px) 0;
+  border-bottom:1px solid var(--light-gray);
+}
+.boat-feat-item:last-child{border:none;}
+.boat-feat-icon{
+  width:clamp(26px,4.5vw,32px);height:clamp(26px,4.5vw,32px);
+  border-radius:50%;background:var(--light-gray);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;
+}
+.boat-feat-icon svg{width:clamp(11px,2.2vw,14px);height:clamp(11px,2.2vw,14px);stroke:var(--black);}
+.boat-feat-name{font-size:clamp(11px,2vw,13px);font-weight:500;color:var(--black);}
+.boat-feat-detail{font-size:clamp(9px,1.8vw,11px);color:var(--text-muted);margin-top:2px;}
+
+/* Photo strip below feature */
+.boat-photo-strip{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:8px;
+  margin-bottom:clamp(20px,4vw,40px);
+}
+.boat-photo-strip-item{
+  position:relative;overflow:hidden;
+  aspect-ratio:4/3;background:var(--light-gray);
+  border:1px solid var(--mid-gray);
+}
+.boat-photo-strip-item img{
+  width:100%;height:100%;object-fit:cover;
+  transition:transform .6s ease;display:block;
+}
+.boat-photo-strip-item:hover img{transform:scale(1.05);}
+/* Placeholder when no image */
+.boat-photo-placeholder{
+  position:absolute;inset:0;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:10px;background:var(--light-gray);
+}
+.boat-photo-placeholder svg{width:clamp(24px,5vw,36px);height:clamp(24px,5vw,36px);stroke:var(--mid-gray);}
+.boat-photo-placeholder span{
+  font-size:clamp(8px,2vw,10px);letter-spacing:2px;
+  text-transform:uppercase;color:var(--mid-gray);font-weight:500;
+  text-align:center;padding:0 12px;
+}
+
+/* Wave trips CTA card */
+.boat-cta-card{
+  background:var(--black);color:#fff;
+  padding:clamp(24px,4vw,52px);
+  display:flex;align-items:center;justify-content:space-between;
+  gap:clamp(16px,3vw,32px);flex-wrap:wrap;
+}
+.boat-cta-card h3{
+  font-family:'Playfair Display';font-size:clamp(18px,3.5vw,32px);
+  font-weight:400;line-height:1.2;flex:1;min-width:200px;
+}
+.boat-cta-card p{
+  color:rgba(255,255,255,.55);font-size:clamp(12px,2vw,14px);
+  line-height:1.8;max-width:400px;margin-top:8px;
+}
+.boat-cta-card .cta-right{display:flex;flex-direction:column;gap:10px;align-items:flex-end;flex-shrink:0;}
+.btn-boat-cta{
+  background:#fff;color:var(--black);border:none;cursor:pointer;
+  padding:clamp(11px,2.5vw,14px) clamp(20px,3.5vw,32px);
+  font-family:'DM Sans';font-size:clamp(9px,2vw,11px);font-weight:700;
+  letter-spacing:2px;text-transform:uppercase;border-radius:2px;
+  transition:.2s;min-height:44px;display:inline-flex;align-items:center;
+  white-space:nowrap;
+}
+.btn-boat-cta:hover{background:var(--mid-gray);}
+
 /* ═══ WAVE SPOTS ═══ */
 .ws-page-content{padding:var(--space-lg) max(4%, env(safe-area-inset-left));background:var(--off-white);}
 .ws-intro{max-width:580px;margin:0 auto clamp(28px,5vw,60px);text-align:center;}
@@ -362,7 +488,6 @@ nav{
 .ws-meta-tag{display:flex;align-items:center;gap:6px;font-size:clamp(9px,2vw,11px);letter-spacing:.8px;text-transform:uppercase;color:var(--text-muted);}
 .ws-meta-tag svg{width:12px;height:12px;stroke:var(--black);}
 
-/* ═══ GALLERY ═══ */
 .gallery-page{padding:var(--space-lg) max(4%, env(safe-area-inset-left));background:var(--off-white);}
 .gallery-masonry{columns:3;column-gap:8px;}
 .gallery-masonry img{
@@ -377,7 +502,6 @@ nav{
 .lightbox img{max-width:100%;max-height:100%;object-fit:contain;}
 .lightbox-close{position:absolute;top:clamp(10px,3vw,18px);right:clamp(12px,3vw,22px);background:none;border:none;color:#fff;font-size:clamp(22px,5vw,30px);cursor:pointer;min-width:44px;min-height:44px;display:flex;align-items:center;justify-content:center;}
 
-/* ═══ PROMO ═══ */
 .promo-page{padding:var(--space-xl) max(4%, env(safe-area-inset-left));background:#fff;}
 .promo-page-card{
   max-width:820px;margin:0 auto;
@@ -404,7 +528,6 @@ nav{
 .btn-promo{background:var(--black);color:#fff;border:none;cursor:pointer;padding:clamp(10px,2vw,13px) clamp(16px,3vw,26px);font-family:'DM Sans';font-size:clamp(9px,2vw,11px);letter-spacing:2px;text-transform:uppercase;font-weight:600;transition:.2s;border-radius:2px;min-height:44px;display:inline-flex;align-items:center;}
 .btn-promo:hover{background:#333;}
 
-/* ═══ CONTACT ═══ */
 .contact-page{padding:var(--space-xl) max(4%, env(safe-area-inset-left));background:#fff;}
 .contact-inner{max-width:640px;margin:0 auto;}
 .contact-inner h2{font-family:'Playfair Display';font-size:clamp(22px,4vw,44px);font-weight:400;margin-bottom:clamp(10px,2vw,18px);}
@@ -417,13 +540,11 @@ nav{
 .c-lbl{font-size:clamp(9px,2vw,10px);letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);margin-bottom:2px;}
 .c-val{font-size:clamp(12px,2.5vw,14px);font-weight:500;}
 
-/* ═══ LOCATION PAGE ═══ */
 .location-page{padding:var(--space-xl) max(4%, env(safe-area-inset-left));background:#fff;}
 .location-page h2{font-family:'Playfair Display';font-size:clamp(20px,4vw,40px);font-weight:400;margin-bottom:6px;}
 .location-page .sub{color:var(--text-muted);font-size:clamp(12px,2vw,14px);margin-bottom:clamp(20px,3.5vw,32px);}
 .location-page iframe{width:100%;height:clamp(220px,40vw,520px);border:0;border-radius:2px;filter:grayscale(20%);}
 
-/* ═══ HOW TO GET HERE ═══ */
 .get-here{
   padding:var(--space-xl) max(4%, env(safe-area-inset-left));
   background:var(--off-white);
@@ -470,7 +591,6 @@ nav{
 }
 .transport-duration svg{width:11px;height:11px;stroke:var(--black);}
 
-/* ═══ BOOKING ═══ */
 #page-booking{background:var(--off-white);}
 .booking-wrap{padding:var(--space-lg) max(4%, env(safe-area-inset-left));}
 .booking-grid{display:grid;grid-template-columns:1fr 340px;gap:clamp(20px,3vw,36px);max-width:1060px;margin:0 auto;}
@@ -536,7 +656,6 @@ nav{
 .bk-submit{width:100%;background:#fff;color:var(--black);border:none;padding:14px;font-family:'DM Sans';font-size:clamp(10px,2vw,11px);font-weight:600;cursor:pointer;letter-spacing:1.5px;text-transform:uppercase;transition:.2s;border-radius:2px;margin-top:6px;min-height:48px;}
 .bk-submit:hover{background:var(--mid-gray);}
 
-/* ═══ ABOUT PAGE ═══ */
 .about-full{
   background:#fff;max-width:740px;margin:0 auto;
   padding:var(--space-xl) max(4%, env(safe-area-inset-left));
@@ -544,7 +663,6 @@ nav{
 .about-full h2{font-family:'Playfair Display';font-size:clamp(22px,4.5vw,44px);font-weight:400;margin-bottom:clamp(14px,2.5vw,24px);color:var(--black);}
 .about-full p{color:#555;line-height:1.95;font-size:clamp(13px,2vw,15px);margin-bottom:clamp(12px,2vw,18px);font-weight:300;}
 
-/* ═══ ADMIN PORTAL ═══ */
 #page-admin{background:var(--off-white);}
 .admin-login{min-height:calc(100svh - clamp(52px,8vw,64px));display:flex;align-items:center;justify-content:center;padding:clamp(20px,5vw,40px) max(4%, env(safe-area-inset-left));}
 .admin-login-card{background:#fff;border:1px solid var(--mid-gray);padding:clamp(24px,5vw,56px);max-width:400px;width:100%;border-radius:4px;box-shadow:0 8px 40px rgba(0,0,0,.06);}
@@ -598,7 +716,6 @@ tr:hover td{background:var(--light-gray);}
 .bar-fill{height:100%;background:var(--black);transition:width .6s ease;display:flex;align-items:center;padding-left:8px;}
 .bar-fill span{font-size:11px;color:#fff;font-weight:600;}
 
-/* ═══ FOOTER ═══ */
 footer{
   background:rgba(255,255,255,0.55);
   border-top:1px solid rgba(255,255,255,0.50);
@@ -614,20 +731,14 @@ footer{
 footer a{color:rgba(0,0,0,0.45);text-decoration:none;transition:.15s;min-height:44px;display:inline-flex;align-items:center;}
 footer a:hover{color:#000;}
 
-/* ══════════════════════════════════════
-   RESPONSIVE BREAKPOINTS
-══════════════════════════════════════ */
-
-/* Large desktop ≥1400px */
+/* ══ RESPONSIVE ══ */
 @media(min-width:1400px){
   nav,.booking-wrap,.room-section,.ws-page-content,.gallery-page,.promo-page,
-  .contact-page,.location-page,.about-strip,.section-intro,.admin-dash,.get-here{
+  .contact-page,.location-page,.about-strip,.section-intro,.admin-dash,.get-here,.boat-page{
     padding-left:calc((100% - 1280px)/2);
     padding-right:calc((100% - 1280px)/2);
   }
 }
-
-/* Tablet landscape ≤1024px */
 @media(max-width:1024px){
   .booking-grid{grid-template-columns:1fr 300px;}
   .room-card{grid-template-columns:1fr;}
@@ -637,9 +748,12 @@ footer a:hover{color:#000;}
   .promo-page-card{grid-template-columns:1fr;}
   .promo-page-img{min-height:240px;}
   .transport-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+  .boat-feature{grid-template-columns:1fr;}
+  .boat-feature-img{min-height:clamp(220px,50vw,400px);}
+  .boat-photo-strip{grid-template-columns:repeat(3,1fr);}
+  .boat-cta-card{flex-direction:column;align-items:flex-start;}
+  .boat-cta-card .cta-right{align-items:flex-start;}
 }
-
-/* Tablet portrait ≤768px */
 @media(max-width:768px){
   .nav-items{display:none;}
   .hamburger{display:flex;}
@@ -654,9 +768,10 @@ footer a:hover{color:#000;}
   .about-img-grid img:first-child{height:clamp(160px,35vw,260px);}
   .about-img-grid img:not(:first-child){height:clamp(110px,22vw,160px);}
   .transport-grid{grid-template-columns:1fr;}
+  .boat-photo-strip{grid-template-columns:repeat(2,1fr);}
+  .boat-specs{flex-wrap:wrap;}
+  .boat-spec{min-width:80px;}
 }
-
-/* Mobile ≤600px */
 @media(max-width:600px){
   .gallery-masonry{columns:2;}
   .promo-page-card{grid-template-columns:1fr;}
@@ -666,20 +781,15 @@ footer a:hover{color:#000;}
   .btn-primary,.btn-outline{width:100%;max-width:280px;}
   .transport-grid{grid-template-columns:1fr;}
   .about-img-grid{grid-template-columns:1fr 1fr;}
+  .boat-photo-strip{grid-template-columns:1fr 1fr;}
 }
-
-/* Small mobile ≤480px */
 @media(max-width:480px){
   .gallery-masonry{columns:1;}
   footer{flex-direction:column;text-align:center;gap:6px;}
   footer div{justify-content:center;}
   .room-specs{gap:6px;}
   .room-spec{flex:1;min-width:55px;}
-  .logo-name{
-    max-width:clamp(90px,28vw,160px);
-    font-size:clamp(8px,2.5vw,11px);
-    letter-spacing:clamp(0.3px,0.2vw,1px);
-  }
+  .logo-name{max-width:clamp(90px,28vw,160px);font-size:clamp(8px,2.5vw,11px);letter-spacing:clamp(0.3px,0.2vw,1px);}
   .admin-stats{grid-template-columns:1fr 1fr;}
   .about-img-grid{grid-template-columns:1fr;}
   .about-img-grid img:first-child{grid-column:1;height:200px;}
@@ -688,9 +798,8 @@ footer a:hover{color:#000;}
   table{font-size:12px;}
   th,td{padding:9px 8px;}
   .admin-action-btn{padding:7px 10px;font-size:10px;}
+  .boat-photo-strip{grid-template-columns:1fr;}
 }
-
-/* Very small mobile ≤380px */
 @media(max-width:380px){
   .logo-name{max-width:110px;font-size:8px;letter-spacing:0.2px;}
   .logo-wrap img{width:clamp(20px,6vw,28px);}
@@ -707,9 +816,8 @@ footer a:hover{color:#000;}
   .ws-info-col{padding:14px;}
   .promo-page-body{padding:16px;}
   .transport-body p{font-size:11px;}
+  .boat-feature-body{padding:16px;}
 }
-
-/* Tiny mobile / smartwatch ≤320px */
 @media(max-width:320px){
   :root{--space-xs:4px;--space-sm:8px;--space-md:12px;--space-lg:16px;--space-xl:24px;}
   nav{height:48px;padding:0 8px;}
@@ -734,7 +842,7 @@ footer a:hover{color:#000;}
   .page-hero-eyebrow{font-size:7px;letter-spacing:1.5px;}
   .section-intro{padding:16px 10px;}
   .section-intro h2{font-size:16px;}
-  .room-section,.ws-page-content,.gallery-page,.promo-page,.contact-page,.location-page,.booking-wrap,.admin-dash,.get-here{padding:16px 10px;}
+  .room-section,.ws-page-content,.gallery-page,.promo-page,.contact-page,.location-page,.booking-wrap,.admin-dash,.get-here,.boat-page{padding:16px 10px;}
   .room-card{grid-template-columns:1fr;}
   .room-img-wrap{min-height:160px;}
   .room-body{padding:12px;}
@@ -790,9 +898,9 @@ footer a:hover{color:#000;}
   .stat-card .s-num{font-size:22px;}
   footer{padding:12px 10px;font-size:9px;}
   footer a{font-size:9px;min-height:36px;}
+  .boat-feature-body{padding:12px;}
+  .boat-cta-card{padding:16px;}
 }
-
-/* Ultra tiny (smartwatch-grade) ≤260px */
 @media(max-width:260px){
   nav{padding:0 6px;}
   .logo-wrap img{width:18px;}
@@ -806,38 +914,30 @@ footer a:hover{color:#000;}
   table{font-size:9px;}
   th,td{padding:6px 5px;}
 }
-
-/* Landscape orientation helpers */
 @media(max-width:768px) and (orientation:landscape){
   #page-home .hero{height:100svh;min-height:240px;}
   .page-hero{height:clamp(140px,50vh,260px);}
   .mob-menu{max-height:calc(100dvh - 48px);overflow-y:auto;}
 }
-
-/* Touch device — disable hover transforms */
 @media(hover:none) and (pointer:coarse){
   .btn-primary:hover,.btn-outline:hover,.btn-book:hover,.btn-promo:hover,
   .nav-book-btn:hover,.bk-submit:hover,.btn-admin-login:hover{transform:none;}
   .room-card:hover .room-img-wrap img,.ws-item:hover .ws-img-col img{transform:none;}
   .gallery-masonry img:hover{transform:none;box-shadow:none;}
   .transport-card:hover{transform:none;box-shadow:none;}
+  .boat-feature:hover .boat-feature-img img{transform:none;}
+  .boat-photo-strip-item:hover img{transform:none;}
 }
-
-/* Reduced motion */
 @media(prefers-reduced-motion:reduce){
   *{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;}
 }
-
-/* Print */
 @media print{
   nav,.mob-menu,.hamburger{display:none!important;}
   .page{display:block!important;}
 }
-
-/* Wide screens */
 @media(min-width:2000px){
   nav,.booking-wrap,.room-section,.ws-page-content,.gallery-page,.promo-page,
-  .contact-page,.location-page,.about-strip,.section-intro,.admin-dash,.get-here{
+  .contact-page,.location-page,.about-strip,.section-intro,.admin-dash,.get-here,.boat-page{
     padding-left:calc((100% - 1480px)/2);
     padding-right:calc((100% - 1480px)/2);
   }
@@ -865,6 +965,7 @@ footer a:hover{color:#000;}
       <div class="nav-dropdown" id="dd-lodge">
         <button class="nav-dd-item" onclick="showPage('about')">About Us</button>
         <button class="nav-dd-item" onclick="showPage('accommodation')">Accommodation</button>
+        <button class="nav-dd-item" onclick="showPage('boat')">Our Boat</button>
         <button class="nav-dd-item" onclick="showPage('gallery')">Gallery</button>
       </div>
     </div>
@@ -903,6 +1004,7 @@ footer a:hover{color:#000;}
     <div class="mob-sub">
       <button class="mob-sub-item" onclick="showPage('about');closeMob()">About Us</button>
       <button class="mob-sub-item" onclick="showPage('accommodation');closeMob()">Accommodation</button>
+      <button class="mob-sub-item" onclick="showPage('boat');closeMob()">Our Boat</button>
       <button class="mob-sub-item" onclick="showPage('gallery');closeMob()">Gallery</button>
     </div>
   </div>
@@ -925,8 +1027,8 @@ footer a:hover{color:#000;}
 <div class="page active" id="page-home">
   <div class="hero">
     <img src="Paddarai Surf Lodge logo design 2.png" class="hero-logo-img" alt="Logo">
-    <div class="hero-tagline">Mentawai Surf Lodge</div>
-    <div class="hero-sub">Malakopa · South Pagai · Indonesia</div>
+    <div class="hero-tagline">Paddarai Surf Lodge</div>
+    <div class="hero-sub">Malakopa · South Pagai · Mentawai · Indonesia</div>
     <div class="hero-cta-wrap">
       <button class="btn-primary" onclick="showPage('booking')">Book Your Stay</button>
       <button class="btn-outline" onclick="showPage('accommodation')">Explore Rooms</button>
@@ -939,9 +1041,9 @@ footer a:hover{color:#000;}
 
   <div class="about-strip">
     <div>
-      <h2>Where the jungle meets the ocean</h2>
-      <p>At Paddarai Surf Lodge, we believe a getaway should feel like coming home. Surrounded by nature and just steps from the waves, our lodge offers a cozy and welcoming space where surfers and travellers can relax, recharge, and enjoy unforgettable surf adventures.</p>
-      <p>Whether you're chasing the perfect swell or simply soaking in the peaceful surroundings, every moment here is meant for your comfort, joy, and connection with nature.</p>
+      <h2>Sleep, Surf, Repeat</h2>
+      <p>Paddarai Surf Lodge is a beachfront lodge in Malakopa, South Pagai, Mentawai Islands. We're right next to Obbak Roxies. wake up, grab your board, and you're in the water. That's pretty much the idea.</p>
+      <p>The lodge sits directly on the beach, so between sessions you can rinse off, eat, rest, and watch the sunset from the same spot. No transfers, no wasted time. Just good waves and a comfortable place to recover at the end of the day. If you're coming to Mentawai to surf, this is a solid base.</p>
     </div>
     <div class="about-img-grid">
       <img src="20240122_153913.jpg" alt="Lodge">
@@ -1077,6 +1179,166 @@ footer a:hover{color:#000;}
             <div class="fac-item"><div class="fac-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg></div><div><div class="fac-name">Quiet Garden</div><div class="fac-detail">Peaceful atmosphere</div></div></div>
           </div>
           <button class="btn-book" onclick="showPage('booking')">Book Room 3</button>
+        </div>
+      </div>
+
+      <!-- Link to Our Boat -->
+      <div style="text-align:center;padding:clamp(16px,3vw,32px) 0 0;">
+        <p style="color:var(--text-muted);font-size:clamp(12px,2vw,14px);margin-bottom:14px;">Heading out to the breaks? Check out our boat.</p>
+        <button class="btn-book" onclick="showPage('boat')" style="align-self:center;">Our Boat →</button>
+      </div>
+    </div>
+
+    <footer>
+      <span>© 2026 Paddarai Surf Lodge — Mentawai, Indonesia</span>
+      <div style="display:flex;gap:20px;"><a href="https://www.instagram.com/paddaraisurflodge" target="_blank">Instagram</a><a href="https://wa.me/6281374192584" target="_blank">WhatsApp</a></div>
+    </footer>
+  </div>
+</div>
+
+<!-- ═══ PAGE: OUR BOAT ═══ -->
+<div class="page" id="page-boat">
+  <div class="page-content">
+    <div class="page-hero" style="background:url('20231222_181700.jpg') center/cover;">
+      <div class="page-hero-content">
+        <div class="page-hero-eyebrow">Getting to the Breaks</div>
+        <h1>Our Boat</h1>
+        <div class="divider"></div>
+      </div>
+    </div>
+
+    <div class="boat-page">
+      <div class="boat-intro">
+        <h2>Your Ticket to the Lineup</h2>
+        <p>Every great surf session starts with a good boat ride. At Paddarai, we run our own dedicated surf boat — reliable, spacious, and crewed by locals who know these waters better than anyone.</p>
+      </div>
+
+      <!-- Main feature card -->
+      <div class="boat-feature">
+        <div class="boat-feature-img">
+          <!-- Replace src below with your actual boat photo, e.g. src="boat-main.jpg" -->
+          <img src="boat-main.jpg" alt="Paddarai surf boat"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="boat-photo-placeholder" style="display:none;position:absolute;inset:0;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+              <path d="M2 20h20M18 9H6l-2 6h16l-2-6zM6 9V6h12v3M12 3v3"/>
+            </svg>
+            <span>Add your main boat photo here<br>(boat-main.jpg)</span>
+          </div>
+          <div class="boat-feature-badge">Our Vessel</div>
+        </div>
+        <div class="boat-feature-body">
+          <div class="boat-feature-eyebrow">Paddarai Surf Charter</div>
+          <h3>A Local Boat, a Local Crew</h3>
+          <p>Our wooden surf charter is purpose-built for the shallow reef passes and open channel crossings of South Pagai. She's fast enough to get you to the breaks early, stable enough to let you rest on the way back, and big enough to carry boards of every shape.</p>
+          <p>Our skipper and crew are from the local community — born and raised on these islands. They know every tide, every channel, and exactly which break is firing on any given morning. You're in safe hands.</p>
+
+          <div class="boat-specs">
+            <div class="boat-spec">
+              <span class="bs-val">8</span>
+              <span class="bs-key">Surfers</span>
+            </div>
+            <div class="boat-spec">
+              <span class="bs-val">40HP</span>
+              <span class="bs-key">Engine</span>
+            </div>
+            <div class="boat-spec">
+              <span class="bs-val">7</span>
+              <span class="bs-key">Breaks</span>
+            </div>
+            <div class="boat-spec">
+              <span class="bs-val">Daily</span>
+              <span class="bs-key">Trips</span>
+            </div>
+          </div>
+
+          <div class="boat-features-list">
+            <div class="boat-feat-item">
+              <div class="boat-feat-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+              </div>
+              <div>
+                <div class="boat-feat-name">Local Skipper</div>
+                <div class="boat-feat-detail">Born & raised in Mentawai — knows every break & channel intimately</div>
+              </div>
+            </div>
+            <div class="boat-feat-item">
+              <div class="boat-feat-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+              </div>
+              <div>
+                <div class="boat-feat-name">Board Racks & Storage</div>
+                <div class="boat-feat-detail">Secure padded racks for shortboards, longboards & SUPs</div>
+              </div>
+            </div>
+            <div class="boat-feat-item">
+              <div class="boat-feat-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
+              </div>
+              <div>
+                <div class="boat-feat-name">Shade Canopy</div>
+                <div class="boat-feat-detail">Full-length shade roof to protect from the equatorial sun between sessions</div>
+              </div>
+            </div>
+            <div class="boat-feat-item">
+              <div class="boat-feat-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 8h1a4 4 0 010 8h-1M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/></svg>
+              </div>
+              <div>
+                <div class="boat-feat-name">Snacks & Drinks</div>
+                <div class="boat-feat-detail">Fresh water, coconuts, and snacks kept on board for all-day sessions</div>
+              </div>
+            </div>
+            <div class="boat-feat-item">
+              <div class="boat-feat-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <div>
+                <div class="boat-feat-name">Safety Equipment</div>
+                <div class="boat-feat-detail">Life jackets, first aid kit & VHF radio on every trip</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Photo strip — replace src with your actual photos -->
+      <div class="boat-photo-strip">
+        <div class="boat-photo-strip-item">
+          <img src="boat-1.jpg" alt="Boat on the water"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="boat-photo-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            <span>Boat photo<br>(boat-1.jpg)</span>
+          </div>
+        </div>
+        <div class="boat-photo-strip-item">
+          <img src="boat-2.jpg" alt="Heading to the break"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="boat-photo-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            <span>Heading out<br>(boat-2.jpg)</span>
+          </div>
+        </div>
+        <div class="boat-photo-strip-item">
+          <img src="boat-3.jpg" alt="Crew at anchor"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="boat-photo-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            <span>At anchor<br>(boat-3.jpg)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="boat-cta-card">
+        <div>
+          <h3>Ready to score your best waves?</h3>
+          <p>Boat trips to Roxi's, Thunders, Greenbush, Macaronis and more — all included with your stay. Book your room and we'll sort the rest.</p>
+        </div>
+        <div class="cta-right">
+          <button class="btn-boat-cta" onclick="showPage('booking')">Book Your Stay</button>
+          <button class="btn-boat-cta" style="background:transparent;color:#fff;border:1px solid rgba(255,255,255,0.3);" onclick="showPage('surf')">See the Breaks →</button>
         </div>
       </div>
     </div>
@@ -1619,7 +1881,7 @@ function showPage(id){
 }
 function updateNavActive(id){
   document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
-  const map={home:'nav-home',surf:'nav-surf',promo:'nav-promo',contact:'nav-contact',location:'nav-location',accommodation:'nav-lodge',about:'nav-lodge',gallery:'nav-lodge'};
+  const map={home:'nav-home',surf:'nav-surf',promo:'nav-promo',contact:'nav-contact',location:'nav-location',accommodation:'nav-lodge',about:'nav-lodge',gallery:'nav-lodge',boat:'nav-lodge'};
   if(map[id]){const btn=document.getElementById(map[id]);if(btn)btn.classList.add('active');}
 }
 
