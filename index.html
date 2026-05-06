@@ -48,7 +48,6 @@ nav{
   gap:8px;
 }
 
-/* ── LOGO: selalu tampil full, tidak pernah terpotong ── */
 .logo-wrap{
   display:flex;
   align-items:center;
@@ -68,7 +67,6 @@ nav{
   letter-spacing:clamp(0.8px,0.4vw,2px);
   font-weight:400;
   white-space:nowrap;
-  /* TIDAK ada overflow:hidden atau text-overflow:ellipsis */
 }
 
 .nav-items{display:flex;align-items:center;gap:2px;flex-shrink:0;}
@@ -351,6 +349,66 @@ nav{
 }
 .btn-book:hover{background:#333;}
 
+/* ═══ OUR BOAT SECTION ═══ */
+.our-boat-section{
+  background:#fff;
+  border-top:1px solid var(--mid-gray);
+  padding:var(--space-xl) max(4%, env(safe-area-inset-left));
+}
+.our-boat-inner{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:clamp(28px,5vw,64px);
+  align-items:center;
+  max-width:1100px;
+  margin:0 auto;
+}
+.our-boat-img-wrap{
+  position:relative;
+  overflow:hidden;
+  border-radius:2px;
+  border:1px solid var(--mid-gray);
+}
+.our-boat-img-wrap img{
+  width:100%;
+  height:clamp(220px,35vw,460px);
+  object-fit:cover;
+  display:block;
+  transition:transform .7s ease;
+}
+.our-boat-section:hover .our-boat-img-wrap img{transform:scale(1.03);}
+.our-boat-label{
+  position:absolute;top:12px;left:12px;
+  background:var(--black);color:#fff;
+  font-size:clamp(8px,2vw,10px);letter-spacing:2px;text-transform:uppercase;
+  padding:4px 10px;font-weight:500;
+}
+.our-boat-body{}
+.our-boat-eyebrow{
+  font-size:clamp(9px,2vw,11px);letter-spacing:3px;text-transform:uppercase;
+  color:var(--text-muted);margin-bottom:clamp(6px,1.5vw,10px);
+}
+.our-boat-body h2{
+  font-family:'Playfair Display';
+  font-size:clamp(22px,4vw,42px);
+  font-weight:400;line-height:1.15;
+  color:var(--black);
+  margin-bottom:clamp(14px,2.5vw,22px);
+}
+.our-boat-body p{
+  color:#555;
+  line-height:1.9;
+  font-size:clamp(13px,2vw,15px);
+  font-weight:300;
+}
+
+@media(max-width:768px){
+  .our-boat-inner{grid-template-columns:1fr;}
+}
+@media(max-width:480px){
+  .our-boat-img-wrap img{height:clamp(200px,55vw,320px);}
+}
+
 /* ═══ WAVE SPOTS ═══ */
 .ws-page-content{padding:var(--space-lg) max(4%, env(safe-area-inset-left));background:var(--off-white);}
 .ws-intro{max-width:580px;margin:0 auto clamp(28px,5vw,60px);text-align:center;}
@@ -628,16 +686,14 @@ footer a:hover{color:#000;}
    RESPONSIVE BREAKPOINTS
 ══════════════════════════════════════ */
 
-/* Large desktop ≥1400px */
 @media(min-width:1400px){
   nav,.booking-wrap,.room-section,.ws-page-content,.gallery-page,.promo-page,
-  .contact-page,.location-page,.about-strip,.section-intro,.admin-dash,.get-here{
+  .contact-page,.location-page,.about-strip,.section-intro,.admin-dash,.get-here,.our-boat-section{
     padding-left:calc((100% - 1280px)/2);
     padding-right:calc((100% - 1280px)/2);
   }
 }
 
-/* Tablet landscape ≤1024px */
 @media(max-width:1024px){
   .booking-grid{grid-template-columns:1fr 300px;}
   .room-card{grid-template-columns:1fr;}
@@ -647,9 +703,9 @@ footer a:hover{color:#000;}
   .promo-page-card{grid-template-columns:1fr;}
   .promo-page-img{min-height:240px;}
   .transport-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+  .our-boat-inner{grid-template-columns:1fr;}
 }
 
-/* Tablet portrait ≤768px */
 @media(max-width:768px){
   .nav-items{display:none;}
   .hamburger{display:flex;}
@@ -666,7 +722,6 @@ footer a:hover{color:#000;}
   .transport-grid{grid-template-columns:1fr;}
 }
 
-/* Mobile ≤600px */
 @media(max-width:600px){
   .gallery-masonry{columns:2;}
   .promo-page-card{grid-template-columns:1fr;}
@@ -678,18 +733,13 @@ footer a:hover{color:#000;}
   .about-img-grid{grid-template-columns:1fr 1fr;}
 }
 
-/* Small mobile ≤480px */
 @media(max-width:480px){
   .gallery-masonry{columns:1;}
   footer{flex-direction:column;text-align:center;gap:6px;}
   footer div{justify-content:center;}
   .room-specs{gap:6px;}
   .room-spec{flex:1;min-width:55px;}
-  /* logo-name: tetap tampil, hanya sesuaikan ukuran */
-  .logo-name{
-    font-size:clamp(9px,3vw,11px);
-    letter-spacing:0.5px;
-  }
+  .logo-name{font-size:clamp(9px,3vw,11px);letter-spacing:0.5px;}
   .admin-stats{grid-template-columns:1fr 1fr;}
   .about-img-grid{grid-template-columns:1fr;}
   .about-img-grid img:first-child{grid-column:1;height:200px;}
@@ -700,9 +750,7 @@ footer a:hover{color:#000;}
   .admin-action-btn{padding:7px 10px;font-size:10px;}
 }
 
-/* Very small mobile ≤380px */
 @media(max-width:380px){
-  /* logo: font lebih kecil tapi TETAP TAMPIL, tanpa max-width */
   .logo-name{font-size:8.5px;letter-spacing:0.3px;}
   .logo-wrap img{width:clamp(20px,6vw,26px);}
   .nav-book-btn{padding:6px 10px;font-size:9px;letter-spacing:1px;margin-left:4px;}
@@ -720,14 +768,11 @@ footer a:hover{color:#000;}
   .transport-body p{font-size:11px;}
 }
 
-/* Tiny mobile / smartwatch ≤320px */
 @media(max-width:320px){
   :root{--space-xs:4px;--space-sm:8px;--space-md:12px;--space-lg:16px;--space-xl:24px;}
   nav{height:48px;padding:0 8px;}
   .logo-wrap img{width:20px;}
-  /* logo-name: tetap tampil di layar sangat kecil, font 8px */
   .logo-name{font-size:8px;letter-spacing:0.2px;}
-  /* sembunyikan tombol Book Now untuk beri ruang logo */
   .nav-book-btn{display:none;}
   .hamburger{min-width:40px;}
   .mob-menu{top:48px;padding:8px 10px;}
@@ -747,7 +792,7 @@ footer a:hover{color:#000;}
   .page-hero-eyebrow{font-size:7px;letter-spacing:1.5px;}
   .section-intro{padding:16px 10px;}
   .section-intro h2{font-size:16px;}
-  .room-section,.ws-page-content,.gallery-page,.promo-page,.contact-page,.location-page,.booking-wrap,.admin-dash,.get-here{padding:16px 10px;}
+  .room-section,.ws-page-content,.gallery-page,.promo-page,.contact-page,.location-page,.booking-wrap,.admin-dash,.get-here,.our-boat-section{padding:16px 10px;}
   .room-card{grid-template-columns:1fr;}
   .room-img-wrap{min-height:160px;}
   .room-body{padding:12px;}
@@ -803,13 +848,13 @@ footer a:hover{color:#000;}
   .stat-card .s-num{font-size:22px;}
   footer{padding:12px 10px;font-size:9px;}
   footer a{font-size:9px;min-height:36px;}
+  .our-boat-inner{gap:16px;}
+  .our-boat-body h2{font-size:18px;}
 }
 
-/* Ultra tiny (smartwatch-grade) ≤260px */
 @media(max-width:260px){
   nav{padding:0 6px;}
   .logo-wrap img{width:16px;}
-  /* logo-name tetap tampil bahkan di 260px */
   .logo-name{font-size:7.5px;letter-spacing:0.1px;}
   .hamburger svg{width:16px;height:16px;}
   .hero-tagline{font-size:15px;}
@@ -822,14 +867,12 @@ footer a:hover{color:#000;}
   th,td{padding:6px 5px;}
 }
 
-/* Landscape orientation helpers */
 @media(max-width:768px) and (orientation:landscape){
   #page-home .hero{height:100svh;min-height:240px;}
   .page-hero{height:clamp(140px,50vh,260px);}
   .mob-menu{max-height:calc(100dvh - 48px);overflow-y:auto;}
 }
 
-/* Touch device — disable hover transforms */
 @media(hover:none) and (pointer:coarse){
   .btn-primary:hover,.btn-outline:hover,.btn-book:hover,.btn-promo:hover,
   .nav-book-btn:hover,.bk-submit:hover,.btn-admin-login:hover{transform:none;}
@@ -838,21 +881,18 @@ footer a:hover{color:#000;}
   .transport-card:hover{transform:none;box-shadow:none;}
 }
 
-/* Reduced motion */
 @media(prefers-reduced-motion:reduce){
   *{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;}
 }
 
-/* Print */
 @media print{
   nav,.mob-menu,.hamburger{display:none!important;}
   .page{display:block!important;}
 }
 
-/* Wide screens */
 @media(min-width:2000px){
   nav,.booking-wrap,.room-section,.ws-page-content,.gallery-page,.promo-page,
-  .contact-page,.location-page,.about-strip,.section-intro,.admin-dash,.get-here{
+  .contact-page,.location-page,.about-strip,.section-intro,.admin-dash,.get-here,.our-boat-section{
     padding-left:calc((100% - 1480px)/2);
     padding-right:calc((100% - 1480px)/2);
   }
@@ -1068,7 +1108,7 @@ footer a:hover{color:#000;}
         </div>
       </div>
 
-      <div class="room-card">
+      <div class="room-card" style="margin-bottom:0;">
         <div class="room-img-wrap">
           <img src="room 3.jpeg" alt="Room 3">
           <div class="room-badge">Best Value</div>
@@ -1092,6 +1132,21 @@ footer a:hover{color:#000;}
             <div class="fac-item"><div class="fac-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg></div><div><div class="fac-name">Quiet Garden</div><div class="fac-detail">Peaceful atmosphere</div></div></div>
           </div>
           <button class="btn-book" onclick="showPage('booking')">Book Room 3</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ OUR BOAT ═══ -->
+    <div class="our-boat-section">
+      <div class="our-boat-inner">
+        <div class="our-boat-img-wrap">
+          <img src="our boat.jpeg" alt="Our Boat" onerror="this.src='20240122_153913.jpg'">
+          <div class="our-boat-label">Our Boat</div>
+        </div>
+        <div class="our-boat-body">
+          <div class="our-boat-eyebrow">On the Water</div>
+          <h2>Our Boat</h2>
+          <p>Paddarai memiliki perahu sendiri yang siap membawa kamu ke berbagai spot surf di sekitar Mentawai — dari Roxi's yang ada di depan lodge sampai ke Thunders, Greenbush, dan Macaronis yang sedikit lebih jauh. Perahu kami dikelola oleh kapten lokal yang sudah hafal seluk-beluk perairan sekitar, jadi kamu bisa fokus di air tanpa perlu khawatir soal logistik.</p>
         </div>
       </div>
     </div>
