@@ -18,7 +18,6 @@
   --black:#0a0a0a;
   --accent:#1a1a1a;
   --accent-light:rgba(0,0,0,0.06);
-  /* fluid spacing */
   --space-xs:clamp(4px,1vw,8px);
   --space-sm:clamp(8px,2vw,16px);
   --space-md:clamp(16px,3vw,24px);
@@ -48,17 +47,28 @@ nav{
   box-shadow:0 2px 32px rgba(0,0,0,0.35);
   gap:8px;
 }
-.logo-wrap{display:flex;align-items:center;gap:clamp(6px,1.5vw,10px);cursor:pointer;flex-shrink:0;min-width:0;}
-.logo-wrap img{width:clamp(24px,5vw,38px);flex-shrink:0;}
+
+/* ── LOGO: selalu tampil full, tidak pernah terpotong ── */
+.logo-wrap{
+  display:flex;
+  align-items:center;
+  gap:clamp(6px,1.5vw,10px);
+  cursor:pointer;
+  flex-shrink:0;
+  min-width:0;
+}
+.logo-wrap img{
+  width:clamp(22px,4vw,38px);
+  flex-shrink:0;
+}
 .logo-name{
   font-family:'Playfair Display';
   color:rgba(255,255,255,0.92);
-  font-size:clamp(8px,1.5vw,13px);
-  letter-spacing:clamp(0.5px,0.3vw,2px);
+  font-size:clamp(9px,1.6vw,13px);
+  letter-spacing:clamp(0.8px,0.4vw,2px);
   font-weight:400;
   white-space:nowrap;
-  overflow:hidden;
-  text-overflow:ellipsis;
+  /* TIDAK ada overflow:hidden atau text-overflow:ellipsis */
 }
 
 .nav-items{display:flex;align-items:center;gap:2px;flex-shrink:0;}
@@ -675,10 +685,10 @@ footer a:hover{color:#000;}
   footer div{justify-content:center;}
   .room-specs{gap:6px;}
   .room-spec{flex:1;min-width:55px;}
+  /* logo-name: tetap tampil, hanya sesuaikan ukuran */
   .logo-name{
-    max-width:clamp(90px,28vw,160px);
-    font-size:clamp(8px,2.5vw,11px);
-    letter-spacing:clamp(0.3px,0.2vw,1px);
+    font-size:clamp(9px,3vw,11px);
+    letter-spacing:0.5px;
   }
   .admin-stats{grid-template-columns:1fr 1fr;}
   .about-img-grid{grid-template-columns:1fr;}
@@ -692,8 +702,9 @@ footer a:hover{color:#000;}
 
 /* Very small mobile ≤380px */
 @media(max-width:380px){
-  .logo-name{max-width:110px;font-size:8px;letter-spacing:0.2px;}
-  .logo-wrap img{width:clamp(20px,6vw,28px);}
+  /* logo: font lebih kecil tapi TETAP TAMPIL, tanpa max-width */
+  .logo-name{font-size:8.5px;letter-spacing:0.3px;}
+  .logo-wrap img{width:clamp(20px,6vw,26px);}
   .nav-book-btn{padding:6px 10px;font-size:9px;letter-spacing:1px;margin-left:4px;}
   .room-card{grid-template-columns:1fr;}
   .fac-grid{grid-template-columns:1fr;}
@@ -713,8 +724,10 @@ footer a:hover{color:#000;}
 @media(max-width:320px){
   :root{--space-xs:4px;--space-sm:8px;--space-md:12px;--space-lg:16px;--space-xl:24px;}
   nav{height:48px;padding:0 8px;}
-  .logo-wrap img{width:22px;}
-  .logo-name{display:none;}
+  .logo-wrap img{width:20px;}
+  /* logo-name: tetap tampil di layar sangat kecil, font 8px */
+  .logo-name{font-size:8px;letter-spacing:0.2px;}
+  /* sembunyikan tombol Book Now untuk beri ruang logo */
   .nav-book-btn{display:none;}
   .hamburger{min-width:40px;}
   .mob-menu{top:48px;padding:8px 10px;}
@@ -795,7 +808,9 @@ footer a:hover{color:#000;}
 /* Ultra tiny (smartwatch-grade) ≤260px */
 @media(max-width:260px){
   nav{padding:0 6px;}
-  .logo-wrap img{width:18px;}
+  .logo-wrap img{width:16px;}
+  /* logo-name tetap tampil bahkan di 260px */
+  .logo-name{font-size:7.5px;letter-spacing:0.1px;}
   .hamburger svg{width:16px;height:16px;}
   .hero-tagline{font-size:15px;}
   .page-hero{height:110px;}
