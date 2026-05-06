@@ -123,7 +123,7 @@ nav{
 .mob-sub.open{max-height:300px;}
 .mob-sub-item,.mob-direct{
   display:block;width:100%;background:none;border:none;cursor:pointer;
-  color:rgba(255,255,255,0.60);font-family:'DM Sans';font-size:12px;
+  color:rgba(255,255,255,.60);font-family:'DM Sans';font-size:12px;
   font-weight:400;letter-spacing:.8px;text-transform:uppercase;
   padding:10px 0;text-align:left;transition:.12s;
   border-bottom:1px solid rgba(255,255,255,0.06);
@@ -346,10 +346,11 @@ nav{
 .btn-promo{background:var(--black);color:#fff;border:none;cursor:pointer;padding:13px 26px;font-family:'DM Sans';font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:600;transition:.2s;border-radius:2px;}
 .btn-promo:hover{background:#333;}
 
-/* ═══ CONTACT ═══ */
-.contact-page{padding:clamp(40px,5vw,70px) 5%;background:#fff;display:grid;grid-template-columns:1fr 1fr;gap:60px;}
-.contact-left h2{font-family:'Playfair Display';font-size:clamp(28px,3.5vw,44px);font-weight:400;margin-bottom:18px;}
-.contact-left p{color:var(--text-muted);line-height:1.9;margin-bottom:32px;font-size:15px;}
+/* ═══ CONTACT — no map ═══ */
+.contact-page{padding:clamp(40px,5vw,70px) 5%;background:#fff;}
+.contact-inner{max-width:640px;margin:0 auto;}
+.contact-inner h2{font-family:'Playfair Display';font-size:clamp(28px,3.5vw,44px);font-weight:400;margin-bottom:18px;}
+.contact-inner p{color:var(--text-muted);line-height:1.9;margin-bottom:32px;font-size:15px;}
 .c-item{display:flex;align-items:center;gap:14px;padding:16px 0;border-bottom:1px solid var(--mid-gray);text-decoration:none;color:var(--text-dark);transition:.2s;}
 .c-item:first-of-type{border-top:1px solid var(--mid-gray);}
 .c-item:hover{color:var(--black);}
@@ -357,14 +358,92 @@ nav{
 .c-icon img{width:16px;height:16px;object-fit:contain;}
 .c-lbl{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);margin-bottom:2px;}
 .c-val{font-size:14px;font-weight:500;}
-.contact-right{overflow:hidden;}
-.contact-right iframe{width:100%;height:100%;min-height:380px;border:0;display:block;filter:grayscale(20%);}
 
-/* ═══ LOCATION ═══ */
+/* ═══ LOCATION PAGE ═══ */
 .location-page{padding:clamp(40px,5vw,70px) 5%;background:#fff;}
 .location-page h2{font-family:'Playfair Display';font-size:clamp(26px,3.5vw,40px);font-weight:400;margin-bottom:6px;}
 .location-page .sub{color:var(--text-muted);font-size:14px;margin-bottom:32px;}
 .location-page iframe{width:100%;height:clamp(300px,40vw,520px);border:0;border-radius:2px;filter:grayscale(20%);}
+
+/* ═══ HOW TO GET HERE ═══ */
+.get-here{
+  padding:clamp(50px,6vw,80px) 5%;
+  background:var(--off-white);
+  border-top:1px solid var(--mid-gray);
+}
+.get-here-header{text-align:center;margin-bottom:clamp(36px,5vw,56px);}
+.get-here-header h2{font-family:'Playfair Display';font-size:clamp(26px,3.5vw,42px);font-weight:400;margin-bottom:12px;color:var(--black);}
+.get-here-header p{max-width:520px;margin:0 auto;color:var(--text-muted);line-height:1.9;font-size:15px;}
+
+.transport-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:24px;
+  max-width:1100px;
+  margin:0 auto;
+}
+.transport-card{
+  background:#fff;
+  border:1px solid var(--mid-gray);
+  border-radius:2px;
+  overflow:hidden;
+  transition:box-shadow .3s ease, transform .3s ease;
+}
+.transport-card:hover{
+  box-shadow:0 12px 40px rgba(0,0,0,.10);
+  transform:translateY(-3px);
+}
+.transport-img{
+  position:relative;
+  width:100%;
+  height:clamp(180px,22vw,280px);
+  overflow:hidden;
+  background:var(--light-gray);
+}
+.transport-img img{
+  width:100%;height:100%;object-fit:cover;
+  transition:transform .6s ease;
+  display:block;
+}
+.transport-card:hover .transport-img img{transform:scale(1.05);}
+
+/* Placeholder when no image */
+.transport-img-placeholder{
+  width:100%;height:100%;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  background:var(--light-gray);
+  gap:12px;
+}
+.transport-img-placeholder svg{width:36px;height:36px;stroke:var(--mid-gray);}
+.transport-img-placeholder span{
+  font-size:10px;letter-spacing:2px;text-transform:uppercase;
+  color:var(--mid-gray);font-weight:500;
+}
+
+.transport-step{
+  position:absolute;top:14px;left:14px;
+  background:var(--black);color:#fff;
+  font-size:10px;letter-spacing:2px;text-transform:uppercase;
+  padding:5px 12px;font-weight:600;z-index:2;
+}
+.transport-body{padding:clamp(20px,3vw,28px);}
+.transport-icon-row{display:flex;align-items:center;gap:10px;margin-bottom:10px;}
+.transport-icon{
+  width:34px;height:34px;border-radius:50%;
+  background:var(--light-gray);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.transport-icon svg{width:15px;height:15px;stroke:var(--black);}
+.transport-mode{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);font-weight:600;}
+.transport-body h3{font-family:'Playfair Display';font-size:clamp(18px,2vw,22px);font-weight:400;margin-bottom:10px;color:var(--black);}
+.transport-body p{color:#555;line-height:1.85;font-size:13.5px;font-weight:300;}
+.transport-duration{
+  display:inline-flex;align-items:center;gap:6px;
+  margin-top:14px;
+  font-size:11px;letter-spacing:.8px;text-transform:uppercase;color:var(--text-muted);
+  background:var(--light-gray);padding:6px 12px;border-radius:20px;
+}
+.transport-duration svg{width:11px;height:11px;stroke:var(--black);}
 
 /* ═══ BOOKING ═══ */
 #page-booking{background:var(--off-white);}
@@ -459,7 +538,6 @@ nav{
 .btn-admin-login:hover{background:#333;}
 .admin-err{font-size:12px;color:#c00;margin-top:10px;display:none;}
 
-/* Admin Dashboard */
 .admin-dash{display:none;padding:clamp(30px,4vw,50px) 5%;}
 .admin-topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:36px;flex-wrap:wrap;gap:12px;}
 .admin-topbar h2{font-family:'Playfair Display';font-size:clamp(22px,3vw,32px);font-weight:400;}
@@ -519,7 +597,7 @@ footer a:hover{color:#000;}
 
 @media(min-width:1400px){
   nav,.booking-wrap,.room-section,.ws-page-content,.gallery-page,.promo-page,
-  .contact-page,.location-page,.about-strip,.section-intro,.admin-dash{
+  .contact-page,.location-page,.about-strip,.section-intro,.admin-dash,.get-here{
     padding-left:calc((100% - 1280px)/2 + 0px);
     padding-right:calc((100% - 1280px)/2 + 0px);
   }
@@ -534,9 +612,7 @@ footer a:hover{color:#000;}
   .ws-img-col{min-height:clamp(220px,45vw,320px);}
   .promo-page-card{grid-template-columns:1fr;}
   .promo-page-img{min-height:260px;}
-  .contact-page{grid-template-columns:1fr;}
-  .contact-right iframe{min-height:300px;}
-  .about-strip{grid-template-columns:1fr;gap:40px;}
+  .transport-grid{grid-template-columns:1fr 1fr;}
 }
 
 @media(max-width:768px){
@@ -564,6 +640,8 @@ footer a:hover{color:#000;}
   .room-img-wrap{min-height:240px;}
   .room-specs{gap:8px;}
   .room-spec{padding:10px 12px;min-width:60px;}
+  .transport-grid{grid-template-columns:1fr;}
+  .about-strip{grid-template-columns:1fr;gap:40px;}
 }
 
 @media(max-width:600px){
@@ -576,8 +654,9 @@ footer a:hover{color:#000;}
   .ws-meta-row{gap:12px;}
   .promo-page{padding:40px 5%;}
   .promo-page-body{padding:24px;}
-  .contact-page{padding:40px 5%;gap:32px;}
+  .contact-page{padding:40px 5%;}
   .booking-wrap{padding:32px 5%;}
+  .get-here{padding:40px 5%;}
 }
 
 @media(max-width:480px){
@@ -610,6 +689,7 @@ footer a:hover{color:#000;}
   .promo-page-card{grid-template-columns:1fr;}
   .promo-page-body{padding:20px;}
   .bk-field input,.bk-field select,.bk-field textarea{font-size:16px;}
+  .transport-body{padding:16px;}
 }
 
 @media(max-width:360px){
@@ -643,7 +723,7 @@ footer a:hover{color:#000;}
 
 @media(min-width:1280px) and (max-width:1400px){
   nav,.booking-wrap,.room-section,.ws-page-content,.gallery-page,.promo-page,
-  .contact-page,.location-page,.about-strip,.section-intro,.admin-dash{
+  .contact-page,.location-page,.about-strip,.section-intro,.admin-dash,.get-here{
     padding-left:5%;
     padding-right:5%;
   }
@@ -651,7 +731,7 @@ footer a:hover{color:#000;}
 
 @media(min-width:2000px){
   nav,.booking-wrap,.room-section,.ws-page-content,.gallery-page,.promo-page,
-  .contact-page,.location-page,.about-strip,.section-intro,.admin-dash{
+  .contact-page,.location-page,.about-strip,.section-intro,.admin-dash,.get-here{
     padding-left:calc((100% - 1480px)/2);
     padding-right:calc((100% - 1480px)/2);
   }
@@ -683,6 +763,10 @@ footer a:hover{color:#000;}
     transform:none;
   }
   .gallery-masonry img:hover{
+    transform:none;
+    box-shadow:none;
+  }
+  .transport-card:hover{
     transform:none;
     box-shadow:none;
   }
@@ -726,6 +810,9 @@ footer a:hover{color:#000;}
     </div>
     <div class="nav-item">
       <button class="nav-btn" onclick="showPage('contact')" id="nav-contact">Contact</button>
+    </div>
+    <div class="nav-item">
+      <button class="nav-btn" onclick="showPage('location')" id="nav-location">Location</button>
     </div>
     <button class="nav-book-btn" onclick="showPage('booking')">Book Now</button>
   </div>
@@ -922,7 +1009,7 @@ footer a:hover{color:#000;}
           <div class="fac-grid">
             <div class="fac-item"><div class="fac-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg></div><div><div class="fac-name">Private Room</div><div class="fac-detail">Your own space</div></div></div>
             <div class="fac-item"><div class="fac-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 9v11a2 2 0 01-2 2H6a2 2 0 01-2-2V9"/></svg></div><div><div class="fac-name">Ensuite Bathroom</div><div class="fac-detail">Hot & cold shower</div></div></div>
-            <div class="fac-item"><div class="fac-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="1.5"/><path d="M19.07 4.93a10 10 0 010 14.14M4.93 4.93a10 10 0 000 14.14"/></svg></div><div><div class="fac-name">WiFi Access</div><div class="fac-detail">Lodge-wide</div></div></div>
+            <div class="fac-item"><div class="fac-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="9" r="3"/></svg></div><div><div class="fac-name">WiFi Access</div><div class="fac-detail">Lodge-wide</div></div></div>
             <div class="fac-item"><div class="fac-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div><div class="fac-name">Garden View</div><div class="fac-detail">Lush tropical outlook</div></div></div>
             <div class="fac-item"><div class="fac-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 8h1a4 4 0 010 8h-1M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/></svg></div><div><div class="fac-name">Breakfast Included</div><div class="fac-detail">Daily tropical breakfast</div></div></div>
             <div class="fac-item"><div class="fac-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg></div><div><div class="fac-name">Quiet Garden Setting</div><div class="fac-detail">Peaceful atmosphere</div></div></div>
@@ -1130,7 +1217,7 @@ footer a:hover{color:#000;}
   </div>
 </div>
 
-<!-- PAGE: CONTACT -->
+<!-- PAGE: CONTACT — no map, contact info only -->
 <div class="page" id="page-contact">
   <div class="page-content">
     <div class="page-hero" style="background:url('20240122_153913.jpg') center/cover;">
@@ -1141,7 +1228,7 @@ footer a:hover{color:#000;}
       </div>
     </div>
     <div class="contact-page">
-      <div class="contact-left">
+      <div class="contact-inner">
         <h2>We'd love to hear from you</h2>
         <p>Have a question about availability, surf conditions, or what to pack? Reach us directly — we're always happy to chat.</p>
         <a href="https://wa.me/6281374192584" target="_blank" class="c-item">
@@ -1156,9 +1243,11 @@ footer a:hover{color:#000;}
           <div class="c-icon"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/gmail.svg" alt="Email"></div>
           <div><div class="c-lbl">Email</div><div class="c-val">paddaraisurflodge@gmail.com</div></div>
         </a>
-      </div>
-      <div class="contact-right">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3989.3!2d100.193892!3d-2.954758!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMsKwNTcnMTcuMiJTIDEwMMKwMTEnMzguMCJF!5e0!3m2!1sen!2sid!4v1700000000000!5m2!1sen!2sid" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div style="margin-top:32px;padding:20px;background:var(--light-gray);border:1px solid var(--mid-gray);border-radius:2px;">
+          <p style="font-size:13px;color:var(--text-muted);line-height:1.8;margin:0;">
+            📍 For directions and how to reach us, visit our <button onclick="showPage('location')" style="background:none;border:none;cursor:pointer;color:var(--black);font-weight:600;font-size:13px;text-decoration:underline;padding:0;font-family:'DM Sans';">Location page</button>.
+          </p>
+        </div>
       </div>
     </div>
     <footer>
@@ -1168,7 +1257,7 @@ footer a:hover{color:#000;}
   </div>
 </div>
 
-<!-- PAGE: LOCATION -->
+<!-- PAGE: LOCATION — map + how to get here -->
 <div class="page" id="page-location">
   <div class="page-content">
     <div class="page-hero" style="background:url('20231222_181700.jpg') center/cover;">
@@ -1178,11 +1267,123 @@ footer a:hover{color:#000;}
         <div class="divider"></div>
       </div>
     </div>
+
     <div class="location-page">
       <h2>Malakopa, South Pagai Island</h2>
       <p class="sub">Mentawai Islands, West Sumatra, Indonesia</p>
       <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3989.3!2d100.193892!3d-2.954758!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMsKwNTcnMTcuMiJTIDEwMMKwMTEnMzguMCJF!5e0!3m2!1sen!2sid!4v1700000000000!5m2!1sen!2sid" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
+
+    <!-- HOW TO GET HERE -->
+    <div class="get-here">
+      <div class="get-here-header">
+        <h2>How to Get Here</h2>
+        <p>Reaching Paddarai Surf Lodge is part of the adventure. Follow these steps to get to our little corner of paradise in the Mentawai Islands.</p>
+      </div>
+
+      <div class="transport-grid">
+
+        <!-- STEP 1 -->
+        <div class="transport-card">
+          <div class="transport-img">
+            <!-- Ganti src dengan foto Anda, contoh: src="transport-1.jpg" -->
+            <img src="transport-1.jpg" alt="Flight to Padang" onerror="this.parentElement.innerHTML='<div class=\'transport-img-placeholder\'><svg viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1.5\'><path d=\'M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z\'/></svg><span>Add your photo here</span></div>'">
+            <div class="transport-step">Step 01</div>
+          </div>
+          <div class="transport-body">
+            <div class="transport-icon-row">
+              <div class="transport-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+              </div>
+              <span class="transport-mode">By Plane</span>
+            </div>
+            <h3>Fly to Minangkabau International Airport</h3>
+            <p>Your journey begins with a flight to Minangkabau International Airport (PDG) in Padang, West Sumatra. Direct flights are available from Jakarta, Kuala Lumpur, and other major hubs. Padang is the main gateway to the Mentawai Islands.</p>
+            <div class="transport-duration">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              Isi durasi penerbangan Anda
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 2 -->
+        <div class="transport-card">
+          <div class="transport-img">
+            <!-- Ganti src dengan foto Anda, contoh: src="transport-2.jpg" -->
+            <img src="transport-2.jpg" alt="Ferry to Mentawai" onerror="this.parentElement.innerHTML='<div class=\'transport-img-placeholder\'><svg viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1.5\'><path d=\'M2 20h20M5 20V10l7-6 7 6v10\'/><path d=\'M12 20v-6\'/></svg><span>Add your photo here</span></div>'">
+            <div class="transport-step">Step 02</div>
+          </div>
+          <div class="transport-body">
+            <div class="transport-icon-row">
+              <div class="transport-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 20h20"/><path d="M18 9H6l-2 6h16l-2-6z"/><path d="M6 9V6h12v3"/><path d="M12 3v3"/></svg>
+              </div>
+              <span class="transport-mode">By Ferry</span>
+            </div>
+            <h3>Ferry from Padang to Sikakap</h3>
+            <p>From Muaro Harbour in Padang, take the government ferry (ASDP) to Sikakap — the main port on South Pagai Island. The ferry departs regularly and is the most common way to reach the southern Mentawai islands. Book your ticket in advance during peak surf season.</p>
+            <div class="transport-duration">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              Isi durasi perjalanan ferry
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 3 -->
+        <div class="transport-card">
+          <div class="transport-img">
+            <!-- Ganti src dengan foto Anda, contoh: src="transport-3.jpg" -->
+            <img src="transport-3.jpg" alt="Road to Malakopa" onerror="this.parentElement.innerHTML='<div class=\'transport-img-placeholder\'><svg viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1.5\'><rect x=\'1\' y=\'3\' width=\'15\' height=\'13\'/><path d=\'M16 8h4l3 6v3h-7V8z\'/><circle cx=\'5.5\' cy=\'18.5\' r=\'2.5\'/><circle cx=\'18.5\' cy=\'18.5\' r=\'2.5\'/></svg><span>Add your photo here</span></div>'">
+            <div class="transport-step">Step 03</div>
+          </div>
+          <div class="transport-body">
+            <div class="transport-icon-row">
+              <div class="transport-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="1" y="3" width="15" height="13"/><path d="M16 8h4l3 6v3h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+              </div>
+              <span class="transport-mode">By Road</span>
+            </div>
+            <h3>Drive or Ojek from Sikakap to Malakopa</h3>
+            <p>From Sikakap port, head south along the trans-Pagai road towards Malakopa village. You can arrange a car or take a local ojek (motorbike taxi). The road winds through lush jungle and coastal views — a beautiful introduction to island life.</p>
+            <div class="transport-duration">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              Isi durasi perjalanan darat
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 4 -->
+        <div class="transport-card">
+          <div class="transport-img">
+            <!-- Ganti src dengan foto Anda, contoh: src="transport-4.jpg" -->
+            <img src="transport-4.jpg" alt="Arrive at Paddarai" onerror="this.parentElement.innerHTML='<div class=\'transport-img-placeholder\'><svg viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1.5\'><path d=\'M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z\'/><polyline points=\'9 22 9 12 15 12 15 22\'/></svg><span>Add your photo here</span></div>'">
+            <div class="transport-step">Step 04</div>
+          </div>
+          <div class="transport-body">
+            <div class="transport-icon-row">
+              <div class="transport-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              </div>
+              <span class="transport-mode">Arrival</span>
+            </div>
+            <h3>Welcome to Paddarai Surf Lodge</h3>
+            <p>You've made it! Paddarai Surf Lodge is located in Malakopa village, right on the southern coast of Pagai Selatan. We recommend contacting us in advance via WhatsApp so we can arrange pick-up and ensure a smooth arrival. The waves are waiting.</p>
+            <div class="transport-duration">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              You're here — welcome!
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- WhatsApp CTA -->
+      <div style="text-align:center;margin-top:clamp(36px,5vw,56px);">
+        <p style="color:var(--text-muted);font-size:14px;margin-bottom:16px;">Need help planning your journey? We're happy to guide you.</p>
+        <a href="https://wa.me/6281374192584" target="_blank" class="btn-primary" style="display:inline-block;">Chat with Us on WhatsApp</a>
+      </div>
+    </div>
+
     <footer>
       <span>© 2026 Paddarai Surf Lodge — Mentawai, Indonesia</span>
       <div style="display:flex;gap:20px;"><a href="https://www.instagram.com/paddaraisurflodge" target="_blank">Instagram</a><a href="https://wa.me/6281374192584" target="_blank">WhatsApp</a></div>
@@ -1405,7 +1606,7 @@ function showPage(id){
 }
 function updateNavActive(id){
   document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
-  const map={home:'nav-home',surf:'nav-surf',promo:'nav-promo',contact:'nav-contact',accommodation:'nav-lodge',about:'nav-lodge',gallery:'nav-lodge'};
+  const map={home:'nav-home',surf:'nav-surf',promo:'nav-promo',contact:'nav-contact',location:'nav-location',accommodation:'nav-lodge',about:'nav-lodge',gallery:'nav-lodge'};
   if(map[id]){const btn=document.getElementById(map[id]);if(btn)btn.classList.add('active');}
 }
 
